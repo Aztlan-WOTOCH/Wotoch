@@ -92,12 +92,20 @@
 /* Dimensiones específicas para modales */
 #loginModal .bg-white {
   width: 480px;
+<<<<<<< HEAD
   height: 650px;
+=======
+  height: 680px;
+>>>>>>> a4fa879 (Se agrega la carpeta del front-end)
 }
 
 #registerModal .bg-white {
   width: 480px;
+<<<<<<< HEAD
   height: 600px; /* Aumentado para que quepa todo */
+=======
+  height: 740px; /* Aumentado para que quepa todo */
+>>>>>>> a4fa879 (Se agrega la carpeta del front-end)
 }
 
 /* Mejoras de espaciado para modales reducidos */
@@ -671,6 +679,7 @@
   .modal {
     padding-top: 2vh !important;
   }
+<<<<<<< HEAD
 }
 
 /* Empuja el contenido del menú móvil hacia abajo para que la X no tape el botón hamburguesa */
@@ -973,3 +982,6 @@
 =======
 }
 >>>>>>> c9cc9de (Menu Arreglado)
+=======
+}
+>>>>>>> a4fa879 (Se agrega la carpeta del front-end)
