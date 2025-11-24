@@ -105,23 +105,3 @@ function alertCustom(message) {
   document.getElementById('alert-message').textContent = message;
   openModal(modalId);
 }
-
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'hero-tittle-color': '#D67840',
-            'primary-brown': '#A25D53',
-            'light-brown': '#E8DDC8',
-            'text-brown': '#000000',
-            'teal-brand': '#0D9488',
-            'sdg-12': '#C99933',
-            'sdg-11': '#E66A27',
-            'sdg-13': '#408246',
-          },
-          fontFamily: {
-            sans: ['Lexend'],
-          }
-        }
-      }
-    }

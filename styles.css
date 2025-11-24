@@ -689,6 +689,7 @@
 /* El botón hamburguesa se queda quieto */
 #mobileMenuButton {
   z-index: 50; /* por debajo del botón de cierre */
+<<<<<<< HEAD
 }
 
 /* Estilos personalizados para el área de imagen */
@@ -969,3 +970,6 @@
             object-fit: cover;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+=======
+}
+>>>>>>> c9cc9de (Menu Arreglado)
