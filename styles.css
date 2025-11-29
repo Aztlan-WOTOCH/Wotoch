@@ -699,6 +699,9 @@
 #mobileMenuButton {
   z-index: 50; /* por debajo del botón de cierre */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1f93719 (hacer_publicacion)
 }
 
 /* Estilos personalizados para el área de imagen */
@@ -955,6 +958,7 @@
       .user-profile {
         align-self: flex-end;
       }
+<<<<<<< HEAD
     }
 
     /*--- NUEVOS ESTILOS AGREGADOS PARA "CÓMO FUNCIONA" --*/
@@ -985,3 +989,6 @@
 =======
 }
 >>>>>>> a4fa879 (Se agrega la carpeta del front-end)
+=======
+    }
+>>>>>>> 1f93719 (hacer_publicacion)

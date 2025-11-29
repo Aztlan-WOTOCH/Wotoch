@@ -319,4 +319,96 @@ document.addEventListener('DOMContentLoaded', function() {
             hideAllTooltips();
         }
     });
+<<<<<<< HEAD
 });
+=======
+});
+
+// Hacer publicación: activar carga de archivo
+document.addEventListener('DOMContentLoaded', () => {
+  const fileDrop = document.querySelector('.file-drop');
+  const fileInput = document.querySelector('.file-input');
+
+  if (!fileDrop || !fileInput) return;
+
+  fileDrop.addEventListener('click', () => fileInput.click());
+
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (file) {
+      fileDrop.querySelector('.file-text').textContent = `Archivo: ${file.name}`;
+    }
+  });
+
+  // Drag & drop visual (opcional)
+  fileDrop.addEventListener('dragover', e => {
+    e.preventDefault();
+    fileDrop.classList.add('border-primary-brown');
+  });
+
+  fileDrop.addEventListener('dragleave', () => {
+    fileDrop.classList.remove('border-primary-brown');
+  });
+
+  fileDrop.addEventListener('drop', e => {
+    e.preventDefault();
+    fileDrop.classList.remove('border-primary-brown');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      fileInput.files = e.dataTransfer.files;
+      fileDrop.querySelector('.file-text').textContent = `Archivo: ${file.name}`;
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+      const fileInput = document.getElementById('fileInput');
+      const imagePreview = document.getElementById('imagePreview');
+      const previewImage = document.getElementById('previewImage');
+      const previewVideo = document.getElementById('previewVideo');
+      const removeImageBtn = document.getElementById('removeImageBtn');
+      
+      // Cuando se hace clic en el área de vista previa, activa el input de archivo
+      imagePreview.addEventListener('click', function() {
+        fileInput.click();
+      });
+      
+      // Cuando se selecciona un archivo
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+          const file = e.target.files[0];
+          const fileType = file.type.split('/')[0]; // 'image' o 'video'
+          
+          const reader = new FileReader();
+          
+          reader.onload = function(e) {
+            if (fileType === 'image') {
+              previewImage.src = e.target.result;
+              previewImage.style.display = 'block';
+              previewVideo.style.display = 'none';
+            } else if (fileType === 'video') {
+              previewVideo.src = e.target.result;
+              previewVideo.style.display = 'block';
+              previewImage.style.display = 'none';
+            }
+            
+            imagePreview.classList.add('has-image');
+            removeImageBtn.classList.remove('hidden');
+          };
+          
+          reader.readAsDataURL(file);
+        }
+      });
+      
+      // Eliminar la imagen/video seleccionado
+      removeImageBtn.addEventListener('click', function() {
+        fileInput.value = '';
+        previewImage.src = '';
+        previewVideo.src = '';
+        previewImage.style.display = 'none';
+        previewVideo.style.display = 'none';
+        imagePreview.classList.remove('has-image');
+        removeImageBtn.classList.add('hidden');
+      });
+    });
+>>>>>>> 1f93719 (hacer_publicacion)
