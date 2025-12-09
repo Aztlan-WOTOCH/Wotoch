@@ -1,0 +1,971 @@
+/* Estilos generales y variables */
+:root {
+  --hero-tittle-color: #D67840;
+  --primary-brown: #A25D53;
+  --light-brown: #E8DDC8;
+  --text-brown: #000000;
+  --teal-brand: #0D9488;
+  --sdg-12: #C99933;
+  --sdg-11: #E66A27;
+  --sdg-13: #408246;
+}
+
+/* Estilo personalizado para el logo y la tarjeta */
+.accion_mes {
+  background-color: #964B3B;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.nav-link-animated {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+/* Estilos del logo */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+  color: var(--primary-brown);
+}
+
+.logo-text {
+  font-size: 1.875rem;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+  color: var(--primary-brown);
+  padding-top: 0.25rem;
+}
+
+/* Estilos para modales reducidos */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+/* Dimensiones específicas para modales */
+#loginModal .bg-white {
+  width: 480px;
+  height: 650px;
+}
+
+#registerModal .bg-white {
+  width: 480px;
+  height: 600px; /* Aumentado para que quepa todo */
+}
+
+/* Mejoras de espaciado para modales reducidos */
+.modal .p-8 {
+  padding: 2rem;
+}
+
+.modal .px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Inputs más compactos */
+.modal input[type="email"],
+.modal input[type="password"],
+.modal input[type="text"],
+.modal input[type="date"] {
+  padding: 0.625rem 0.75rem;
+  font-size: 0.75rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  min-height: 44px; /* Para mejor touch en móvil */
+}
+
+.modal input[type="email"]:focus,
+.modal input[type="password"]:focus,
+.modal input[type="text"]:focus,
+.modal input[type="date"]:focus {
+  border-color: #A25D53;
+  box-shadow: 0 0 0 2px rgba(162, 93, 83, 0.1);
+  outline: none;
+}
+
+/* Botones más compactos */
+.modal button[type="submit"] {
+  padding: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+/* Botón de Google compacto */
+.modal button[type="button"] {
+  padding: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+/* Textos más pequeños pero legibles */
+.modal h2 {
+  font-size: 2rem;
+}
+
+.modal .text-2xl {
+  font-size: 1.5rem;
+}
+
+/* Logo más compacto */
+.modal svg {
+  width: 100px;
+  height: 15px;
+}
+
+/* Asegurar que el contenido se distribuya bien */
+.modal .flex-1 {
+  flex: 1 1 0%;
+  min-height: 0;
+}
+
+/* Scroll suave si es necesario */
+.modal .bg-white {
+  overflow-y: auto;
+}
+
+/* MEJORAS ESPECÍFICAS PARA MODAL REGISTRO EN RESPONSIVE */
+@media (max-width: 520px) {
+  #registerModal .bg-white {
+    width: 95vw !important;
+    height: auto !important;
+    min-height: 85vh !important;
+    max-height: 95vh !important; /* Más alto para que quepa todo */
+    overflow-y: auto !important;
+  }
+  
+  #loginModal .bg-white {
+    width: 95vw !important;
+    height: auto !important;
+    min-height: 85vh !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  
+  .modal .p-8 {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .modal .px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Mejor espaciado para los campos */
+  .modal .space-y-4 > * {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .modal .space-y-6 > * {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Inputs más compactos en móvil */
+  .modal input[type="email"],
+  .modal input[type="password"],
+  .modal input[type="date"] {
+    padding: 0.75rem !important;
+    font-size: 0.8rem !important;
+    min-height: 48px !important;
+  }
+  
+  /* Labels más compactos */
+  .modal label {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Botones más compactos */
+  .modal button {
+    padding: 0.875rem !important;
+    font-size: 0.85rem !important;
+    min-height: 48px !important;
+  }
+  
+  /* Reducir espacio entre secciones */
+  .modal .space-y-3 > * {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Header más compacto */
+  .modal .mb-6 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .modal .mb-8 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Asegurar que el formulario ocupe el espacio disponible */
+  .modal form.flex-1 {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  
+  /* Espacio extra para el campo de fecha */
+  .modal .flex-1 > .space-y-4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+/* Para pantallas muy pequeñas (iPhone SE, etc) */
+@media (max-width: 375px) {
+  #registerModal .bg-white {
+    height: 92vh !important;
+    max-height: 92vh !important;
+  }
+  #loginModal .bg-white {
+    height: 90vh !important;
+    max-height: 90vh !important;
+  }
+  
+  .modal .p-8 {
+    padding: 1rem 0.75rem !important;
+  }
+  
+  .modal .px-8 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  /* Textos más pequeños pero legibles */
+  .modal h2 {
+    font-size: 1rem !important;
+  }
+  
+  .modal .text-2xl {
+    font-size: 1.25rem !important;
+  }
+  
+  /* Inputs aún más compactos */
+  .modal input {
+    padding: 0.6rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  /* Menos margen entre campos */
+  .modal .space-y-4 > * {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* Estilos para los tooltips - MEJORADO CON POSICIONAMIENTO MANUAL */
+.tooltip-trigger {
+  cursor: help;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.tooltip {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: tooltipFadeIn 0.2s ease-out;
+  z-index: 1001;
+  position: fixed;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  max-width: 280px;
+  width: auto;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flecha del tooltip */
+.tooltip-arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  border-left: 1px solid #e5e7eb;
+  transform: rotate(45deg);
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* POSICIONAMIENTO MANUAL DE TOOLTIPS - AJUSTA ESTOS VALORES */
+#passwordTips {
+  /* Ejemplo: posicionar arriba a la derecha - CAMBIA ESTOS VALORES */
+  top: 500px !important;
+  right: 50px !important;
+  left: auto !important;
+}
+
+#birthdayInfo {
+  /* Ejemplo: posicionar arriba a la izquierda - CAMBIA ESTOS VALORES */
+  top: 120px !important;
+  left: 50px !important;
+  right: auto !important;
+}
+
+/* Clases de utilidad para posicionamiento manual */
+.tooltip-top-right {
+  top: 100px !important;
+  right: 50px !important;
+  left: auto !important;
+}
+
+.tooltip-top-left {
+  top: 100px !important;
+  left: 50px !important;
+  right: auto !important;
+}
+
+.tooltip-bottom-right {
+  bottom: 100px !important;
+  right: 50px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+.tooltip-bottom-left {
+  bottom: 100px !important;
+  left: 50px !important;
+  top: auto !important;
+  right: auto !important;
+}
+
+.tooltip-center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Clase para forzar texto normal en modales */
+.modal-normal {
+  font-style: normal !important;
+  font-family: 'Lexend', sans-serif !important;
+  font-weight: normal !important;
+}
+
+/* Aplicar a todos los elementos dentro del modal */
+.modal-normal,
+.modal-normal * {
+  font-style: normal !important;
+}
+
+/* Clase para texto cursiva cuando la necesites */
+.text-italic-custom {
+  font-style: italic !important;
+}
+
+/* Responsive para tooltips en móviles */
+@media (max-width: 768px) {
+  .tooltip {
+    width: 280px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Sobreescribir posiciones manuales en móvil */
+  #passwordTips,
+  #birthdayInfo {
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .tooltip-arrow {
+    display: none;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .tooltip {
+    width: 260px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .tooltip h3 {
+    font-size: 0.8rem !important;
+  }
+  
+  .tooltip p, .tooltip li {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Botones de acción en escritorio */
+.desktop-auth-buttons {
+  display: none;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .desktop-auth-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  /* Asegurar que los botones de auth no se muestren en móvil fuera del menú */
+  .desktop-auth-buttons {
+    display: none !important;
+  }
+}
+
+/* Mejoras para el botón hamburguesa en móvil */
+#mobileMenuButton {
+  z-index: 80;
+  position: relative;
+}
+
+/* Asegurar que el menú móvil tenga buen espaciado */
+.mobile-menu .space-y-6 > * {
+  margin-bottom: 1.5rem;
+}
+
+.mobile-menu .pt-4 {
+  margin-top: 2rem;
+  border-top: 1px solid #133e95;
+  padding-top: 1rem;
+}
+
+/* OPTIMIZACIÓN EXTREMA PARA MÓVIL - REGISTER MODAL */
+@media (max-width: 768px) {
+  .modal {
+    padding: 1rem !important;
+    align-items: flex-start !important;
+    padding-top: 7vh !important;
+  }
+  
+  #registerModal .bg-white {
+    width: 60vw !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: 85vh !important; /* Reducido para que quepa */
+    margin: 0 auto !important;
+    transform: scale(0.95); /* Ligeramente más pequeño */
+  }
+  
+  #loginModal .bg-white {
+    width: 60vw !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: 85vh !important; /* Reducido para que quepa */
+    margin: 0 auto !important;
+    transform: scale(0.95); /* Ligeramente más pequeño */
+  }
+  
+  /* HEADER SUPER COMPACTO */
+  .modal .p-8 {
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .modal .px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Logo ultra compacto */
+  .modal .mb-6 {
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .modal .mb-8 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .modal .text-2xl {
+    font-size: 1.1rem !important;
+    line-height: 1 !important;
+  }
+  
+  .modal svg {
+    width: 70px !important;
+    height: 10px !important;
+  }
+  
+  .modal h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* FORMULARIO ULTRA COMPACTO */
+  .modal form {
+    gap: 0.25rem !important;
+  }
+  
+  .modal .space-y-4 > * {
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .modal .space-y-6 > * {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .modal .space-y-3 > * {
+    margin-bottom: 0.3rem !important;
+  }
+  
+  /* Labels ultra compactos */
+  .modal label {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  
+  /* Inputs compactos */
+  .modal input[type="email"],
+  .modal input[type="password"],
+  .modal input[type="date"] {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.75rem !important;
+    height: 36px !important;
+  }
+  
+  /* Botones compactos */
+  .modal button {
+    padding: 0.5rem !important;
+    font-size: 0.75rem !important;
+    height: 38px !important;
+    margin: 0.2rem 0 !important;
+  }
+  
+  /* SEPARADOR COMPACTO */
+  .modal .py-1 {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+    margin: 0.2rem 0 !important;
+  }
+  
+  /* FOOTER COMPACTO */
+  .modal .border-t {
+    margin-top: 0.3rem !important;
+  }
+  
+  .modal .pt-4, .modal .pt-6 {
+    padding-top: 0.5rem !important;
+  }
+  
+  .modal .py-4 {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+  }
+  
+  /* Tooltips compactos */
+  .tooltip-trigger span {
+    font-size: 0.65rem !important;
+  }
+  
+  /* Eliminar cualquier espacio innecesario */
+  .modal .flex-1 {
+    min-height: 0 !important;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 375px) {
+  #registerModal .bg-white {
+    max-height: 82vh !important;
+    transform: scale(0.9) !important;
+    margin-top: 2vh !important;
+  }
+  
+  .modal .p-8 {
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  .modal .text-2xl {
+    font-size: 1rem !important;
+  }
+  
+  
+  .modal input {
+    height: 34px !important;
+    padding: 0.35rem 0.4rem !important;
+  }
+  
+  .modal button {
+    height: 36px !important;
+    padding: 0.45rem !important;
+  }
+}
+
+/* Para pantallas en landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  #registerModal .bg-white {
+    max-height: 90vh !important;
+    transform: scale(0.85) !important;
+  }
+  
+  .modal {
+    padding-top: 2vh !important;
+  }
+}
+
+/* Empuja el contenido del menú móvil hacia abajo para que la X no tape el botón hamburguesa */
+#mobileMenu > div:first-child {
+  padding-top: 4rem; /* deja espacio para el botón de cierre */
+}
+
+/* Asegura que el botón de cierre esté arriba a la derecha, sin solapar la hamburguesa */
+#closeMobileMenu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 60; /* por encima del menú */
+}
+
+/* El botón hamburguesa se queda quieto */
+#mobileMenuButton {
+  z-index: 50; /* por debajo del botón de cierre */
+}
+
+/* Estilos personalizados para el área de imagen */
+    .image-section {
+      background-color: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-right: 1px solid #e5e7eb;
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    .image-preview {
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      border: 2px dashed #d1d5db;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .image-preview:hover {
+      border-color: #A25D53;
+    }
+    
+    .image-preview.has-image {
+      border-style: solid;
+      border-color: #A25D53;
+    }
+    
+    .image-preview img,
+    .image-preview video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    
+    .image-preview.has-image img,
+    .image-preview.has-image video {
+      display: block;
+    }
+    
+    .image-preview.has-image .upload-placeholder {
+      display: none;
+    }
+    
+    .upload-placeholder {
+      text-align: center;
+      color: #6b7280;
+    }
+    
+    .upload-placeholder svg {
+      margin: 0 auto 1rem;
+    }
+    
+    .form-section {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    
+    .user-profile {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #A25D53;
+    }
+    
+    .user-profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      
+      .image-section,
+      .form-section {
+        width: 100%;
+        min-height: auto;
+      }
+      
+      .image-section {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 1rem;
+      }
+      
+      .image-preview {
+        max-width: 100%;
+        height: 300px;
+      }
+      
+      .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .user-profile {
+        align-self: flex-end;
+      }
+    }
+
+    /* Estilos personalizados para el área de imagen */
+    .image-section {
+      background-color: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-right: 1px solid #e5e7eb;
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    .image-preview {
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      border: 2px dashed #d1d5db;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .image-preview:hover {
+      border-color: #A25D53;
+    }
+    
+    .image-preview.has-image {
+      border-style: solid;
+      border-color: #A25D53;
+    }
+    
+    .image-preview img,
+    .image-preview video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    
+    .image-preview.has-image img,
+    .image-preview.has-image video {
+      display: block;
+    }
+    
+    .image-preview.has-image .upload-placeholder {
+      display: none;
+    }
+    
+    .upload-placeholder {
+      text-align: center;
+      color: #6b7280;
+    }
+    
+    .upload-placeholder svg {
+      margin: 0 auto 1rem;
+    }
+    
+    .form-section {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    
+    .user-profile {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #A25D53;
+    }
+    
+    .user-profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      
+      .image-section,
+      .form-section {
+        width: 100%;
+        min-height: auto;
+      }
+      
+      .image-section {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 1rem;
+      }
+      
+      .image-preview {
+        max-width: 100%;
+        height: 300px;
+      }
+      
+      .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .user-profile {
+        align-self: flex-end;
+      }
+    }
+
+    /*--- NUEVOS ESTILOS AGREGADOS PARA "CÓMO FUNCIONA" --*/
+    .content-center-vertical {
+            min-height: calc(100vh - px); /* Ajuste para llenar pantalla */
+        }
+        /* Transición suave para el cambio de fondo */
+        main {
+            transition: background-color 0.5s ease-in-out;
+        }
+        /* Animación de entrada para el contenido */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilos para el collage de imágenes */
+        .collage-img {
+            border-radius: 1.5rem;
+            object-fit: cover;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
