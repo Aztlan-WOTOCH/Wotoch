@@ -93,19 +93,27 @@
 #loginModal .bg-white {
   width: 480px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 650px;
 =======
   height: 680px;
 >>>>>>> a4fa879 (Se agrega la carpeta del front-end)
+=======
+  height: 650px;
+>>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79
 }
 
 #registerModal .bg-white {
   width: 480px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 600px; /* Aumentado para que quepa todo */
 =======
   height: 740px; /* Aumentado para que quepa todo */
 >>>>>>> a4fa879 (Se agrega la carpeta del front-end)
+=======
+  height: 600px; /* Aumentado para que quepa todo */
+>>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79
 }
 
 /* Mejoras de espaciado para modales reducidos */
@@ -680,6 +688,9 @@
     padding-top: 2vh !important;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79
 }
 
 /* Empuja el contenido del menú móvil hacia abajo para que la X no tape el botón hamburguesa */
@@ -700,8 +711,11 @@
   z-index: 50; /* por debajo del botón de cierre */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 1f93719 (hacer_publicacion)
+=======
+>>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79
 }
 
 /* Estilos personalizados para el área de imagen */
@@ -959,6 +973,7 @@
         align-self: flex-end;
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
 
     /*--- NUEVOS ESTILOS AGREGADOS PARA "CÓMO FUNCIONA" --*/
@@ -992,3 +1007,6 @@
 =======
     }
 >>>>>>> 1f93719 (hacer_publicacion)
+=======
+    }
+>>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79

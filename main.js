@@ -319,9 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hideAllTooltips();
         }
     });
-<<<<<<< HEAD
-});
-=======
 });
 
 // Hacer publicación: activar carga de archivo
@@ -411,4 +408,3 @@ document.addEventListener('DOMContentLoaded', function() {
         removeImageBtn.classList.add('hidden');
       });
     });
->>>>>>> 1f93719 (hacer_publicacion)
