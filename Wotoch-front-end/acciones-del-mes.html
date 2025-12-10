@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wotoch - Acciones del Mes</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'hero-tittle-color': '#D67840',
+            'primary-brown': '#A25D53',
+            'light-brown': '#E8DDC8',
+            'text-brown': '#000000',
+            'teal-brand': '#0D9488',
+          },
+          fontFamily: {
+            sans: ['Lexend'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="bg-white font-sans">
+  <!-- Contenido principal -->
+  <main class="flex min-h-screen">
+    <!-- Menú lateral izquierdo (fijo) -->
+    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space-y-6 border-r border-gray-300 fixed left-0 top-0 h-screen bg-white z-40">
+      <!-- Logo como botón para ir al feed -->
+      <a href="feed.html" class="hover:scale-110 transition mb-4">
+        <img src="/imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18">
+      </a>
+      
+      <!-- Icono 1 - Crear publicación -->
+      <a href="hacer_publicacion.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="2.8" y="2.8" width="18" height="18" rx="4" stroke-width="1"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 3 - Corazón -->
+      <a href="deseas_donar.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Círculo exterior -->
+          <circle cx="12" cy="12" r="10" stroke-width="1"/>
+          <!-- Corazón centrado y reducido -->
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1" 
+            d="M12 9c-0.5-1-1.5-1.7-2.7-1.7-1.5 0-2.8 1.2-2.8 2.7 0 4.2 5.5 7 5.5 7s5.5-2.8 5.5-7c0-1.5-1.3-2.7-2.8-2.7-1.2 0-2.2 0.7-2.7 1.7Z" 
+          />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 3 - Campana -->
+      <a href="notificaciones.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+    </aside>
+
+    <!-- Contenedor principal del feed -->
+    <div class="flex-1 flex ml-20 sm:ml-24">
+      <!-- Área central del feed -->
+      <div class="flex-1 flex flex-col items-center py-8 px-4 overflow-y-auto mr-64">
+        
+        <!-- Título Enero 2025 -->
+        <h2 class="w-full max-w-lg text-3xl font-bold text-hero-tittle-color mb-4">Enero - 2025</h2>
+
+        <!-- Tarjeta de Acción del Mes - Enero 2025 -->
+        <article class="w-full max-w-lg bg-light-brown rounded-3xl mb-8 overflow-hidden accion-card"
+                 data-mes="Enero - 2025"
+                 data-imagen="https://media.timeout.com/images/106168342/750/562/image.jpg"
+                 data-usuario="Gaby Mandujano"
+                 data-foto="https://media.istockphoto.com/id/1471725712/es/foto/joven-sonriente-tomando-selfies-mientras-se-relaja-en-casa.jpg?s=612x612&w=0&k=20&c=8gsoTfUFcCvDeGOqcp4mR4MebAEuarWblhYAH81EQJ4="
+                 data-subtitulo="Bazar de amor"
+                 data-cita="A través de la ropa, queremos devolverles la confianza que les quitaron."
+                 data-descripcion="Gaby y sus amigas hicieron un bazar de ropa de segunda mano en una institución para mujeres y adolescentes violentadas."
+                 data-likes="156"
+                 data-fecha="15 de enero">
+          <!-- Imagen de la acción -->
+          <div class="px-6 pt-6 pb-2">
+            <div class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="https://media.timeout.com/images/106168342/750/562/image.jpg" alt="Bazar de amor" class="w-full h-full object-cover">
+              <!-- Botón Leer más -->
+              <button class="leer-mas-btn absolute bottom-4 right-4 bg-primary-brown text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-opacity-90 transition shadow-lg">
+                Leer más
+              </button>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="px-6 py-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img src="https://media.istockphoto.com/id/1471725712/es/foto/joven-sonriente-tomando-selfies-mientras-se-relaja-en-casa.jpg?s=612x612&w=0&k=20&c=8gsoTfUFcCvDeGOqcp4mR4MebAEuarWblhYAH81EQJ4=" alt="Gaby Mandujano" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span class="font-bold text-gray-900 block text-lg">Bazar de amor</span>
+                <span class="text-gray-700">Gaby Mandujano</span>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm italic mb-2">"A través de la ropa, queríamos devolverles la confianza que les quitaron".</p>
+            <p class="text-gray-600 text-sm">Gaby y sus amigas hicieron un bazar de ropa de segunda mano en una institución para mujeres y adolescentes violentadas.</p>
+          </div>
+        </article>
+
+        <!-- Título Diciembre 2024 -->
+        <h2 class="w-full max-w-lg text-3xl font-bold text-hero-tittle-color mb-4 mt-4">Diciembre - 2024</h2>
+
+        <!-- Tarjeta de Acción del Mes - Diciembre 2024 -->
+        <article class="w-full max-w-lg bg-light-brown rounded-3xl mb-8 overflow-hidden accion-card"
+                 data-mes="Diciembre - 2024"
+                 data-imagen="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600"
+                 data-usuario="Carlos Hernández"
+                 data-foto="imagenes/perfil-gaby.jpg"
+                 data-subtitulo="Navidad solidaria"
+                 data-cita="Cada juguete es una sonrisa que perdura."
+                 data-descripcion="Carlos organizó una colecta de juguetes para niños en comunidades rurales, logrando entregar más de 200 regalos en Nochebuena."
+                 data-likes="234"
+                 data-fecha="24 de diciembre">
+          <!-- Imagen de la acción -->
+          <div class="px-6 pt-6 pb-2">
+            <div class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600" alt="Navidad solidaria" class="w-full h-full object-cover">
+              <!-- Botón Leer más -->
+              <button class="leer-mas-btn absolute bottom-4 right-4 bg-primary-brown text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-opacity-90 transition shadow-lg">
+                Leer más
+              </button>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="px-6 py-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img src="imagenes/perfil-gaby.jpg" alt="Carlos Hernández" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span class="font-bold text-gray-900 block text-lg">Navidad solidaria</span>
+                <span class="text-gray-700">Carlos Hernández</span>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm italic mb-2">"Cada juguete es una sonrisa que perdura".</p>
+            <p class="text-gray-600 text-sm">Carlos organizó una colecta de juguetes para niños en comunidades rurales, logrando entregar más de 200 regalos en Nochebuena.</p>
+          </div>
+        </article>
+
+        <!-- Título Noviembre 2024 -->
+        <h2 class="w-full max-w-lg text-3xl font-bold text-hero-tittle-color mb-4 mt-4">Noviembre - 2024</h2>
+
+        <!-- Tarjeta de Acción del Mes - Noviembre 2024 -->
+        <article class="w-full max-w-lg bg-light-brown rounded-3xl mb-8 overflow-hidden accion-card"
+                 data-mes="Noviembre - 2024"
+                 data-imagen="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600"
+                 data-usuario="María López"
+                 data-foto="imagenes/perfil-gaby.jpg"
+                 data-subtitulo="Despensas de esperanza"
+                 data-cita="Compartir lo que tenemos es la mejor forma de dar gracias."
+                 data-descripcion="María y su familia recolectaron despensas para familias afectadas por las lluvias en la sierra, entregando 50 paquetes de alimentos básicos."
+                 data-likes="189"
+                 data-fecha="20 de noviembre">
+          <!-- Imagen de la acción -->
+          <div class="px-6 pt-6 pb-2">
+            <div class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600" alt="Despensas de esperanza" class="w-full h-full object-cover">
+              <!-- Botón Leer más -->
+              <button class="leer-mas-btn absolute bottom-4 right-4 bg-primary-brown text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-opacity-90 transition shadow-lg">
+                Leer más
+              </button>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="px-6 py-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img src="imagenes/perfil-gaby.jpg" alt="María López" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span class="font-bold text-gray-900 block text-lg">Despensas de esperanza</span>
+                <span class="text-gray-700">María López</span>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm italic mb-2">"Compartir lo que tenemos es la mejor forma de dar gracias".</p>
+            <p class="text-gray-600 text-sm">María y su familia recolectaron despensas para familias afectadas por las lluvias en la sierra, entregando 50 paquetes de alimentos básicos.</p>
+          </div>
+        </article>
+
+        <!-- Título Octubre 2024 -->
+        <h2 class="w-full max-w-lg text-3xl font-bold text-hero-tittle-color mb-4 mt-4">Octubre - 2024</h2>
+
+        <!-- Tarjeta de Acción del Mes - Octubre 2024 -->
+        <article class="w-full max-w-lg bg-light-brown rounded-3xl mb-8 overflow-hidden accion-card"
+                 data-mes="Octubre - 2024"
+                 data-imagen="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600"
+                 data-usuario="Ana Rodríguez"
+                 data-foto="imagenes/perfil-gaby.jpg"
+                 data-subtitulo="Clases de arte"
+                 data-cita="El arte sana el alma y libera la creatividad."
+                 data-descripcion="Ana impartió talleres de pintura gratuitos a niños en situación de vulnerabilidad durante todo el mes de octubre."
+                 data-likes="145"
+                 data-fecha="28 de octubre">
+          <!-- Imagen de la acción -->
+          <div class="px-6 pt-6 pb-2">
+            <div class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600" alt="Clases de arte" class="w-full h-full object-cover">
+              <!-- Botón Leer más -->
+              <button class="leer-mas-btn absolute bottom-4 right-4 bg-primary-brown text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-opacity-90 transition shadow-lg">
+                Leer más
+              </button>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="px-6 py-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img src="imagenes/perfil-gaby.jpg" alt="Ana Rodríguez" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span class="font-bold text-gray-900 block text-lg">Clases de arte</span>
+                <span class="text-gray-700">Ana Rodríguez</span>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm italic mb-2">"El arte sana el alma y libera la creatividad".</p>
+            <p class="text-gray-600 text-sm">Ana impartió talleres de pintura gratuitos a niños en situación de vulnerabilidad durante todo el mes de octubre.</p>
+          </div>
+        </article>
+
+        <!-- Título Septiembre 2024 -->
+        <h2 class="w-full max-w-lg text-3xl font-bold text-hero-tittle-color mb-4 mt-4">Septiembre - 2024</h2>
+
+        <!-- Tarjeta de Acción del Mes - Septiembre 2024 -->
+        <article class="w-full max-w-lg bg-light-brown rounded-3xl mb-8 overflow-hidden accion-card"
+                 data-mes="Septiembre - 2024"
+                 data-imagen="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600"
+                 data-usuario="Pedro Sánchez"
+                 data-foto="imagenes/perfil-gaby.jpg"
+                 data-subtitulo="Limpieza de playas"
+                 data-cita="Cuidar nuestro planeta es cuidar nuestro futuro."
+                 data-descripcion="Pedro lideró una jornada de limpieza en las playas de Veracruz, reuniendo a más de 100 voluntarios y recolectando 500 kg de basura."
+                 data-likes="278"
+                 data-fecha="15 de septiembre">
+          <!-- Imagen de la acción -->
+          <div class="px-6 pt-6 pb-2">
+            <div class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600" alt="Limpieza de playas" class="w-full h-full object-cover">
+              <!-- Botón Leer más -->
+              <button class="leer-mas-btn absolute bottom-4 right-4 bg-primary-brown text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-opacity-90 transition shadow-lg">
+                Leer más
+              </button>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="px-6 py-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img src="imagenes/perfil-gaby.jpg" alt="Pedro Sánchez" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span class="font-bold text-gray-900 block text-lg">Limpieza de playas</span>
+                <span class="text-gray-700">Pedro Sánchez</span>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm italic mb-2">"Cuidar nuestro planeta es cuidar nuestro futuro".</p>
+            <p class="text-gray-600 text-sm">Pedro lideró una jornada de limpieza en las playas de Veracruz, reuniendo a más de 100 voluntarios y recolectando 500 kg de basura.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Panel lateral derecho (fijo) -->
+      <aside class="w-64 flex flex-col items-center py-8 px-4 fixed right-0 top-0 h-screen bg-white z-40">
+        <!-- Foto de perfil del usuario actual -->
+        <div id="profileBtn" class="user-profile cursor-pointer hover:scale-110 transition mb-8">
+          <img id="profileImg" src="imagenes/perfil-gaby.jpg" alt="Foto de perfil">
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="flex flex-col gap-4 w-full">
+          <a href="acciones-del-mes.html" class="w-full py-3 px-6 bg-primary-brown text-white font-semibold rounded-full hover:bg-opacity-90 transition text-center">
+            Acción del mes
+          </a>
+          <a href="todas-las-acciones.html" class="w-full py-3 px-6 bg-light-brown text-gray-800 font-semibold rounded-full hover:bg-opacity-90 transition border border-gray-300 text-center">
+            Todas las acciones
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Modal de detalle de Acción -->
+  <div id="accionModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-3xl overflow-hidden max-w-4xl w-full mx-4 max-h-[90vh] flex flex-col">
+      <!-- Título del modal -->
+      <div class="px-8 py-6">
+        <h2 id="modalMes" class="text-4xl font-bold text-hero-tittle-color">Enero - 2025</h2>
+      </div>
+
+      <!-- Contenido del modal -->
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Lado izquierdo - Imagen -->
+        <div class="w-1/2 bg-white flex items-center justify-center p-4">
+          <div class="w-full h-full rounded-2xl overflow-hidden">
+            <img id="modalImagen" src="" alt="Acción del mes" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Lado derecho - Contenido -->
+        <div class="w-1/2 flex flex-col">
+          <!-- Header -->
+          <div class="flex items-center justify-between px-6 py-5">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img id="modalFoto" src="" alt="Usuario" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span id="modalUsuario" class="font-semibold text-gray-900 block text-lg"></span>
+                <span id="modalSubtitulo" class="text-primary-brown text-sm font-semibold"></span>
+              </div>
+            </div>
+            <div class="bg-primary-brown text-white text-xs font-bold px-3 py-1 rounded-full">
+              ACCIÓN DEL MES
+            </div>
+          </div>
+
+          <!-- Descripción y comentarios -->
+          <div class="flex-1 overflow-y-auto px-6 py-4">
+            <!-- Descripción original -->
+            <div class="mb-6">
+              <p id="modalCita" class="text-gray-900 text-sm leading-relaxed italic mb-4"></p>
+              <p id="modalDescripcion" class="text-gray-600 text-sm leading-relaxed"></p>
+            </div>
+
+            <!-- Comentarios -->
+            <div class="space-y-4">
+              <!-- Comentario 1 -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                  <img src="imagenes/perfil-gaby.jpg" alt="maria.lopez" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <p class="text-sm">
+                    <span class="font-semibold">maria.lopez</span>
+                    <span class="text-gray-900"> Qué hermosa iniciativa ❤️</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Comentario 2 -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                  <img src="imagenes/perfil-gaby.jpg" alt="carlos.hdz" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <p class="text-sm">
+                    <span class="font-semibold">carlos.hdz</span>
+                    <span class="text-gray-900"> Inspirador, quiero hacer algo así en mi comunidad</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer con acciones -->
+          <div class="px-6 py-4">
+            <!-- Acciones -->
+            <div class="flex items-center gap-4 mb-3">
+              <button class="hover:scale-110 transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </button>
+              <button class="hover:scale-110 transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                </svg>
+              </button>
+              <button class="hover:scale-110 transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Me gustas y fecha -->
+            <p id="modalLikes" class="font-semibold text-gray-900">156 Me gustas</p>
+            <p id="modalFecha" class="text-gray-400 text-xs mt-1">15 de enero</p>
+
+            <!-- Input de comentario -->
+            <div class="mt-4">
+              <input type="text" placeholder="Comentar" class="w-full text-sm text-gray-500 outline-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón cerrar -->
+      <button id="closeAccionModal" class="absolute top-4 right-4 text-white hover:text-gray-300 transition">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Modal de Acción del Mes
+    const accionModal = document.getElementById('accionModal');
+    const closeAccionModalBtn = document.getElementById('closeAccionModal');
+    const leerMasBtns = document.querySelectorAll('.leer-mas-btn');
+
+    // Función para abrir modal con datos de la tarjeta
+    function abrirModalConDatos(card) {
+      // Obtener datos del data attributes
+      const mes = card.dataset.mes;
+      const imagen = card.dataset.imagen;
+      const usuario = card.dataset.usuario;
+      const foto = card.dataset.foto;
+      const subtitulo = card.dataset.subtitulo;
+      const cita = card.dataset.cita;
+      const descripcion = card.dataset.descripcion;
+      const likes = card.dataset.likes;
+      const fecha = card.dataset.fecha;
+
+      // Actualizar modal con los datos
+      document.getElementById('modalMes').textContent = mes;
+      document.getElementById('modalImagen').src = imagen;
+      document.getElementById('modalUsuario').textContent = usuario;
+      document.getElementById('modalFoto').src = foto;
+      document.getElementById('modalSubtitulo').textContent = subtitulo;
+      document.getElementById('modalCita').textContent = '"' + cita + '"';
+      document.getElementById('modalDescripcion').textContent = descripcion;
+      document.getElementById('modalLikes').textContent = likes + ' Me gustas';
+      document.getElementById('modalFecha').textContent = fecha;
+
+      // Mostrar modal
+      accionModal.classList.remove('hidden');
+      accionModal.classList.add('flex');
+    }
+
+    // Event listeners para botones "Leer más"
+    leerMasBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.accion-card');
+        abrirModalConDatos(card);
+      });
+    });
+
+    // Cerrar modal
+    closeAccionModalBtn.addEventListener('click', function() {
+      accionModal.classList.add('hidden');
+      accionModal.classList.remove('flex');
+    });
+
+    // Cerrar modal al hacer click fuera
+    accionModal.addEventListener('click', function(e) {
+      if (e.target === accionModal) {
+        accionModal.classList.add('hidden');
+        accionModal.classList.remove('flex');
+      }
+    });
+
+    // Profile animation
+    document.getElementById('profileBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const profileBtn = this;
+      const profileImg = document.getElementById('profileImg');
+      const rect = profileBtn.getBoundingClientRect();
+      
+      // Crear clon animado
+      const clone = profileImg.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = rect.left + 'px';
+      clone.style.top = rect.top + 'px';
+      clone.style.width = rect.width + 'px';
+      clone.style.height = rect.height + 'px';
+      clone.style.borderRadius = '50%';
+      clone.style.zIndex = '9999';
+      clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
+      clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+      clone.style.border = '4px solid #A25D53';
+      clone.style.opacity = '1';
+      document.body.appendChild(clone);
+      
+      // Forzar reflow
+      clone.offsetHeight;
+      
+      // Posición final
+      const sidebarWidth = 96;
+      const paddingLeft = 48;
+      const finalSize = 192;
+      const finalLeft = sidebarWidth + paddingLeft;
+      const finalTop = 64;
+      
+      clone.style.left = finalLeft + 'px';
+      clone.style.top = finalTop + 'px';
+      clone.style.width = finalSize + 'px';
+      clone.style.height = finalSize + 'px';
+      clone.style.opacity = '0.3';
+      
+      // Navegar después de la animación
+      setTimeout(function() {
+        window.location.href = 'profile.html';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

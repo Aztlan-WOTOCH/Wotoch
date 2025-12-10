@@ -1,0 +1,633 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wotoch - ¿Cómo funciona?</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Configuración de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hero-tittle-color': '#D67840', // Naranja/Terracota
+                        'primary-brown': '#A25D53', 
+                        'light-brown': '#E8DDC8',
+                        'text-brown': '#000000',
+                        'teal-brand': '#0D9488', // Color Verde Azulado para el texto y footer
+                        
+                        // Colores específicos de los pasos
+                        'step-yellow-bg': '#FDFD96',
+                        'step-green-bg': '#D1F2EB',
+                        'step-pink-bg': '#FADBD8',
+                        'step-blue-bg': '#E0F7FA',
+                        
+                        'text-step-green': '#00695C',
+                        'text-step-dark-green': '#1B5E20',
+                        'text-step-purple': '#4A148C',
+                    },
+                    fontFamily: {
+                        sans: ['Lexend'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Carga de estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body class="bg-white text-text-brown font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="shadow-sm bg-white z-10 relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex flex-col items-start leading-none -space-y-2">
+                <svg width="135" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
+                    <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"/>
+                </svg>
+                <div class="text-3xl font-bold tracking-tight text-primary-brown pt-1">WOTOCH</div>
+            </a>
+
+            <!-- Menú de navegación y botones de acción -->
+            <nav class="flex items-center space-x-4 lg:space-x-6">
+                <!-- Enlaces de navegación -->
+                <a href="index.html" class="hidden md:inline text-gray-700 hover:text-primary-brown nav-link-animated">Inicio</a>
+                <a href="como-funciona.html" class="hidden md:inline text-primary-brown font-semibold hover:text-primary-brown transition nav-link-animated">¿Cómo funciona?</a>
+                <a href="quienes-somos.html" class="hidden md:inline text-gray-700 hover:text-primary-brown nav-link-animated">¿Quiénes somos?</a>
+
+                <!-- Botones de acción - OCULTOS EN MÓVIL -->
+                <div class="hidden md:flex space-x-4">
+                    <button class="px-5 py-2.5 text-white bg-primary-brown hover:bg-opacity-90 rounded-xl transition duration-300 shadow-md" onclick="openModal('loginModal')">
+                        Iniciar sesión
+                    </button>
+                    <button class="px-5 py-2.5 text-text-brown bg-light-brown hover:bg-opacity-80 rounded-xl transition duration-300 shadow-md" onclick="openModal('registerModal')">
+                        Regístrate
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1" id="mobileMenuButton">
+                    <span class="block w-6 h-0.5 bg-primary-brown transition-transform"></span>
+                    <span class="block w-6 h-0.5 bg-primary-brown transition-opacity"></span>
+                    <span class="block w-6 h-0.5 bg-primary-brown transition-transform"></span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden fixed inset-0 bg-white z-50 p-6 transform transition-transform duration-300 -translate-x-full" id="mobileMenu">
+            <div class="flex justify-between items-center mb-8">
+                <a href="index.html" class="flex flex-col items-start leading-none -space-y-2">
+                    <svg width="100" height="20" viewBox="0 0 100 20" fill="none" class="text-primary-brown">
+                        <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5"/>
+                    </svg>
+                    <div class="text-2xl font-bold tracking-tight text-primary-brown pt-1">WOTOCH</div>
+                </a>
+                <button class="text-3xl text-primary-brown" id="closeMobileMenu">&times;</button>
+            </div>
+            
+            <nav class="flex flex-col space-y-6">
+                <a href="index.html" class="text-xl font-semibold text-gray-700 hover:text-primary-brown py-2 border-b border-gray-200">Inicio</a>
+                <a href="como-funciona.html" class="text-xl font-semibold text-primary-brown py-2 border-b border-gray-200">¿Cómo funciona?</a>
+                <a href="quienes-somos.html" class="text-xl font-semibold text-gray-700 hover:text-primary-brown py-2 border-b border-gray-200">¿Quiénes somos?</a>
+                
+                <!-- Botones de acción SOLO EN EL MENÚ MÓVIL -->
+                <div class="pt-4 space-y-4">
+                    <button class="w-full py-3 text-white bg-primary-brown hover:bg-opacity-90 rounded-xl transition duration-300" onclick="openModal('loginModal')">
+                        Iniciar sesión
+                    </button>
+                    <button class="w-full py-3 text-text-brown bg-light-brown hover:bg-opacity-80 rounded-xl transition duration-300" onclick="openModal('registerModal')">
+                        Regístrate
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main id="main-container" class="flex-grow flex flex-col justify-center items-center px-4 content-center-vertical relative bg-white transition-colors duration-500">
+        
+        <!-- Contenedor del contenido cambiante -->
+        <div id="dynamic-content" class="container mx-auto max-w-6xl w-full flex flex-col items-center justify-center">
+            
+            <!-- CONTENIDO INICIAL (Slide 0) -->
+            <div class="text-center fade-in">
+                <div class="mb-12">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        <span class="text-hero-tittle-color block mb-2">Cambia tu vida</span>
+                        <span class="text-teal-brand">mientras cambias la de alguien más</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón Flecha Hacia Abajo -->
+        <div class="mt-auto mb-12 z-10" id="arrow-container">
+            <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Footer de sección (Solo visible en el Slide 0) -->
+        <div id="intro-footer" class="w-full bg-teal-brand py-6 absolute bottom-0 left-0">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-white text-lg font-light tracking-wide">
+                    Permítenos mostrarte cómo funciona
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- MODALES Y TOOLTIPS (Integrados de quienes-somos) -->
+    <!-- ========================================== -->
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal hidden modal-normal">
+        <div class="bg-white rounded-2xl shadow-2xl w-[480px] h-[680px] flex flex-col mx-4 overflow-hidden relative">
+            <button onclick="closeModal('loginModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8 pb-4">
+                <div class="text-center">
+                    <div class="flex flex-col items-center leading-none -space-y-2 mb-6">
+                        <svg width="120" height="18" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
+                            <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div class="text-2xl font-bold tracking-tight text-primary-brown pt-1 font-sans" style="font-style: normal !important;">WOTOCH</div>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">Te damos la<br> bienvenida<br> a WOTOCH</h2>
+                </div>
+            </div>
+            
+            <form class="px-8 pb-6 space-y-4 flex-1 flex flex-col" onsubmit="event.preventDefault(); alertCustom('¡Inicio de sesión exitoso!'); closeModal('loginModal');">
+                <div class="space-y-4 flex-1">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Correo electrónico</label>
+                        <input type="email" placeholder="Ingresa tu correo" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
+                        <input type="password" placeholder="Ingresa tu contraseña" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-sm">
+                    </div>
+                    <div class="flex justify-between items-center pt-1">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-primary-brown focus:ring-primary-brown w-4 h-4">
+                            <span class="ml-2 text-xs text-gray-600">Recordarme</span>
+                        </label>
+                        <a href="#" class="text-xs text-primary-brown hover:underline font-medium">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <button type="submit" class="w-full bg-primary-brown text-white py-2.5 rounded-lg hover:bg-opacity-90 transition duration-300 font-semibold text-sm">
+                        Iniciar sesión
+                    </button>
+                    <div class="relative flex items-center py-1">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="flex-shrink mx-3 text-gray-500 text-xs">o</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+                    <button type="button" class="w-full border-2 border-gray-300 text-gray-700 py-2.5 rounded-lg hover:bg-gray-50 transition duration-300 font-semibold text-sm flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Continuar con Google
+                    </button>
+                </div>
+            </form>
+            <div class="px-8 py-4 text-center border-t border-gray-200">
+                <p class="text-gray-600 text-xs">
+                    ¿Aún no tienes una cuenta? 
+                    <a href="#" class="text-primary-brown font-semibold hover:underline" onclick="switchModal('loginModal', 'registerModal')">Registrarse</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registerModal" class="modal hidden modal-normal">
+        <div class="bg-white rounded-2xl shadow-2xl w-[480px] h-[600px] flex flex-col mx-4">
+            <button onclick="closeModal('registerModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-6 pb-2">
+                <div class="text-center">
+                    <div class="flex flex-col items-center leading-none -space-y-1 mb-2">
+                        <svg width="100" height="15" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
+                            <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div class="text-xl font-bold tracking-tight text-primary-brown">WOTOCH</div>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-800">Te damos la<br> bienvenida <br>a WOTOCH</h2> 
+                </div>
+            </div>
+            
+            <form class="px-6 pb-3 space-y-2 flex-1 flex flex-col" onsubmit="event.preventDefault(); alertCustom('¡Registro exitoso!'); closeModal('registerModal');">
+                <div class="space-y-2 flex-1">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Correo electrónico</label>
+                        <input type="email" placeholder="Ingresa tu correo" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-sm">
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-xs font-medium text-gray-700">Contraseña</label>
+                            <button type="button" class="text-primary-brown hover:text-primary-brown/80 transition-colors tooltip-trigger" onclick="toggleTooltip('passwordTips')">
+                                <span class="flex items-center gap-1 text-xs font-normal">Consejos <span class="text-xs">①</span></span>
+                            </button>
+                        </div>
+                        <input type="password" placeholder="Crea una contraseña" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-sm">
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-xs font-medium text-gray-700">Fecha de nacimiento</label>
+                            <button type="button" class="text-primary-brown hover:text-primary-brown/80 transition-colors tooltip-trigger" onclick="toggleTooltip('birthdayInfo')">
+                                <span class="text-xs">②</span>
+                            </button>
+                        </div>
+                        <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-sm">
+                    </div>
+                </div>
+                
+                <div class="space-y-1">
+                    <button type="submit" class="w-full bg-primary-brown text-white py-2 rounded-lg hover:bg-opacity-90 transition duration-300 font-semibold text-sm">
+                        Registrarse
+                    </button>
+                    <div class="relative flex items-center">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="flex-shrink mx-2 text-gray-500 text-xs">o</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+                    <button type="button" class="w-full border-2 border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition duration-300 font-semibold text-sm flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Google
+                    </button>
+                </div>
+            </form>
+            <div class="px-6 py-2 text-center border-t border-gray-200">
+                <p class="text-gray-600 text-xs">
+                    ¿Ya tienes cuenta? 
+                    <a href="#" class="text-primary-brown font-semibold hover:underline" onclick="switchModal('registerModal', 'loginModal')">Iniciar Sesión</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip de Consejos para Contraseña -->
+    <div id="passwordTips" class="tooltip hidden">
+        <div class="space-y-3">
+            <h3 class="font-semibold text-gray-800 text-sm">Consejos para la contraseña</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+                Una contraseña segura te ayudará a mantener segura tu cuenta. Usa al menos ocho letras, números y símbolos.
+            </p>
+            <h4 class="font-semibold text-gray-800 text-sm mt-3">Qué evitar</h4>
+            <ul class="text-xs text-gray-600 space-y-1 list-disc list-inside">
+                <li>Contraseñas, palabras y nombres comunes</li>
+                <li>Fechas recientes o asociadas contigo</li>
+                <li>Patrones simples y texto repetido</li>
+            </ul>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+
+    <!-- Tooltip de Información de Fecha de Nacimiento -->
+    <div id="birthdayInfo" class="tooltip hidden">
+        <div class="space-y-3">
+            <h3 class="font-semibold text-gray-800 text-sm">Fecha de nacimiento</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+                Pedimos tu fecha de nacimiento para hacer de Wotoch un lugar seguro. No compartiremos esta información sin tu permiso ni será visible en tu perfil. Si tienes menos de 18 deberás usar la página con el consentimiento de tus padres.
+            </p>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+
+
+    <script>
+        let currentSlide = 0;
+
+        // Datos de las diapositivas
+        const slides = [
+            {
+                // Slide 0: Inicio
+                bgColor: 'bg-white',
+                footerVisible: true,
+                content: `
+                <div class="text-center fade-in">
+                    <div class="mb-12">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                            <span class="text-hero-tittle-color block mb-2">Cambia tu vida</span>
+                            <span class="text-teal-brand">mientras cambias la de alguien más</span>
+                        </h1>
+                    </div>
+                </div>`
+            },
+            {
+                // Slide 1: Amarillo
+                bgColor: 'bg-step-yellow-bg',
+                footerVisible: false,
+                content: `
+                    <div class="grid lg:grid-cols-2 gap-12 items-center w-full fade-in">
+                        <div class="relative h-[400px] w-full max-w-md mx-auto lg:mx-0">
+                            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80" class="collage-img absolute top-0 left-0 w-48 h-64 z-10" alt="Ropa">
+                            <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=400&q=80" class="collage-img absolute bottom-0 right-0 w-56 h-56 z-20" alt="Juguetes">
+                            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&q=80" class="collage-img absolute top-10 right-4 w-40 h-40 z-0 opacity-80" alt="Libros">
+                        </div>
+                        <div class="text-left">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-teal-700 leading-tight">
+                                Piensa si tienes algo en tu casa que ya no uses más o quieras compartir
+                            </h2>
+                        </div>
+                    </div>`
+            },
+            {
+                // Slide 2: Verde
+                bgColor: 'bg-step-green-bg',
+                footerVisible: false,
+                content: `
+                    <div class="grid lg:grid-cols-2 gap-12 items-center w-full fade-in">
+                        <div class="text-left order-2 lg:order-1">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-text-step-dark-green leading-tight">
+                                Nosotros te ayudamos a encontrar el lugar más cercano a ti para que puedas obsequiar tus artículos
+                            </h2>
+                        </div>
+                        <div class="relative h-[400px] w-full max-w-md mx-auto lg:mx-0 order-1 lg:order-2">
+                             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80" class="collage-img absolute top-0 right-0 w-64 h-48 z-10" alt="Edificio">
+                             <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=400&q=80" class="collage-img absolute bottom-0 left-4 w-60 h-60 z-20" alt="Entrada">
+                        </div>
+                    </div>`
+            },
+            {
+                // Slide 3: Rosa
+                bgColor: 'bg-step-pink-bg',
+                footerVisible: false,
+                content: `
+                    <div class="grid lg:grid-cols-2 gap-12 items-center w-full fade-in">
+                        <div class="relative h-[400px] w-full max-w-md mx-auto lg:mx-0">
+                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80" class="collage-img absolute top-0 left-0 w-48 h-64 z-10" alt="Voluntarios">
+                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=80" class="collage-img absolute bottom-8 right-0 w-60 h-48 z-20" alt="Niños estudiando">
+                        </div>
+                        <div class="text-left">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-text-step-purple leading-tight">
+                                Así, puedes estar seguro de que tus cosas llegarán a las manos correctas como hospitales, albergues y orfanatos.
+                            </h2>
+                        </div>
+                    </div>`
+            },
+            {
+                // Slide 4: Azul (Registro) - FORMULARIO EMBEBIDO
+                bgColor: 'bg-step-blue-bg',
+                footerVisible: false,
+                isSlide4: true,
+                content: `
+                    <div class="w-screen h-screen flex fade-in">
+                        <!-- Columna Izquierda - Texto Centrado -->
+                        <div class="flex-1 flex flex-col items-center justify-center">
+                            <h2 class="text-6xl font-extrabold text-hero-tittle-color leading-tight text-center max-w-lg">
+                                Regístrate para poder empezar a donar
+                            </h2>
+                        </div>
+                        <!-- Columna Derecha - Formulario pegado a la derecha -->
+                        <div class="bg-white w-[520px] h-full flex flex-col py-14 px-20 shadow-lg border-l-4 border-gray-100">
+                                <div class="text-center mb-10">
+                                    <div class="flex flex-col items-center leading-none space-y-1 mb-8">
+                                        <svg width="280" height="40" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
+                                            <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter"/>
+                                        </svg>
+                                        <div class="text-5xl font-bold tracking-tight text-primary-brown">WOTOCH</div>
+                                    </div>
+                                    <h3 class="text-2xl font-semibold text-gray-900 leading-snug">Te damos la<br>bienvenida<br>a WOTOCH</h3>
+                                </div>
+                                <form class="space-y-5 flex-1" onsubmit="event.preventDefault(); alertCustom('¡Registro exitoso!');">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-800 mb-2">Correo electrónico</label>
+                                        <input type="email" placeholder="Ingresa tu correo" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-brown focus:border-primary-brown focus:outline-none text-sm transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-800 mb-2">Contraseña</label>
+                                        <input type="password" placeholder="Crea una contraseña" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-brown focus:border-primary-brown focus:outline-none text-sm transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-800 mb-2">Fecha de nacimiento</label>
+                                        <input type="date" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-brown focus:border-primary-brown focus:outline-none text-sm transition">
+                                    </div>
+                                    <button type="submit" class="w-full bg-primary-brown text-white py-3.5 rounded-full hover:bg-opacity-90 font-bold text-base shadow-lg transition transform hover:scale-105">
+                                        Registrarse
+                                    </button>
+                                    <div class="relative flex items-center py-2">
+                                        <div class="flex-grow border-t-2 border-gray-200"></div>
+                                        <span class="flex-shrink mx-4 text-gray-500 font-semibold text-lg">o</span>
+                                        <div class="flex-grow border-t-2 border-gray-200"></div>
+                                    </div>
+                                    <button type="button" class="w-full border-2 border-gray-300 text-gray-800 py-3 rounded-xl hover:bg-gray-100 flex items-center justify-center gap-3 font-semibold text-sm transition">
+                                        <svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                        Continuar con Google
+                                    </button>
+                                </form>
+                                <div class="pt-6 mt-6 border-t-2 border-gray-200 text-center">
+                                    <p class="text-gray-700 text-base font-light">
+                                        ¿Ya tienes una cuenta? 
+                                        <a href="#" class="text-primary-brown font-light hover:underline">Iniciar Sesión</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+            }
+        ];
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            renderSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            renderSlide(currentSlide);
+        }
+
+        function renderSlide(index) {
+            const slide = slides[index];
+            const mainContainer = document.getElementById('main-container');
+            const dynamicContent = document.getElementById('dynamic-content');
+            const introFooter = document.getElementById('intro-footer');
+            const arrowContainer = document.getElementById('arrow-container');
+
+            mainContainer.className = `flex-grow flex flex-col justify-center items-center px-4 content-center-vertical relative transition-colors duration-500 ${slide.bgColor}`;
+            
+            let arrowHTML = '';
+            
+            // Para el slide 4, solo mostrar botón de regresar
+            if (slide.isSlide4) {
+                arrowHTML = `
+                    <button onclick="prevSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce fixed top-20 left-1/2 transform -translate-x-1/2 z-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                        </svg>
+                    </button>
+                `;
+            } else if (index > 0) {
+                // Si no es el primer slide ni el 4, agregar flecha hacia arriba para regresar
+                arrowHTML = `
+                    <div class="flex gap-6 justify-center items-end">
+                        <button onclick="prevSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                            </svg>
+                        </button>
+                        <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                `;
+            } else {
+                // Solo flecha hacia abajo en el primer slide
+                arrowHTML = `
+                    <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                `;
+            }
+            
+            arrowContainer.innerHTML = arrowHTML;
+            
+            // Agregar animación de bounce solo al botón de siguiente
+            if (index === 0) {
+                arrowContainer.classList.add('animate-bounce');
+            } else {
+                arrowContainer.classList.remove('animate-bounce');
+            }
+
+            dynamicContent.innerHTML = slide.content;
+
+            if (slide.footerVisible) {
+                introFooter.style.display = 'block';
+            } else {
+                introFooter.style.display = 'none';
+            }
+        }
+
+        // --- LÓGICA DE MODALES (Integrada) ---
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('active'); // Para compatibilidad con estilos CSS
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            // Cerrar tooltips al cerrar modal
+            document.querySelectorAll('.tooltip').forEach(t => t.classList.add('hidden'));
+        }
+
+        function switchModal(closeId, openId) {
+            closeModal(closeId);
+            setTimeout(() => openModal(openId), 100);
+        }
+
+        function toggleTooltip(id) {
+            const tooltip = document.getElementById(id);
+            if (tooltip) {
+                const isHidden = tooltip.classList.contains('hidden');
+                // Ocultar todos primero
+                document.querySelectorAll('.tooltip').forEach(t => t.classList.add('hidden'));
+                
+                if (isHidden) {
+                    tooltip.classList.remove('hidden');
+                }
+            }
+        }
+
+        // Cerrar modales al hacer click fuera
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.add('hidden');
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // --- LÓGICA DE ALERTAS PERSONALIZADAS ---
+        function alertCustom(message) {
+            const modalId = 'custom-alert-modal';
+            let modal = document.getElementById(modalId);
+            
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = modalId;
+                modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[2000] transition-opacity duration-300 opacity-0 pointer-events-none';
+                modal.innerHTML = `
+                    <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform scale-95 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4 text-primary-brown">Notificación</h3>
+                        <p id="alert-message" class="text-gray-700 mb-6"></p>
+                        <button id="close-alert" class="w-full py-2 bg-primary-brown text-white rounded-lg hover:bg-opacity-90 transition">
+                            Cerrar
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                document.getElementById('close-alert').addEventListener('click', () => {
+                    hideAlert(modal);
+                });
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        hideAlert(modal);
+                    }
+                });
+            }
+
+            document.getElementById('alert-message').textContent = message;
+            showAlert(modal);
+        }
+
+        function showAlert(modal) {
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }
+
+        function hideAlert(modal) {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+            }, 300);
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

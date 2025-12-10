@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wotoch - ¿Qué deseas donar?</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'hero-tittle-color': '#D67840', // Color del título "¿Qué deseas donar?"
+            'primary-brown': '#A25D53', // Color de los botones circulares
+            'light-brown': '#E8DDC8',
+            'text-brown': '#000000',
+            'teal-brand': '#0D9488',
+          },
+          fontFamily: {
+            sans: ['Lexend'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+      /* Efecto hover suave para los botones de categoría */
+      .category-btn {
+          transition: all 0.3s ease;
+      }
+      .category-btn:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(162, 93, 83, 0.3);
+      }
+  </style>
+
+</head>
+
+<body class="bg-white font-sans">
+  <!-- Contenido principal -->
+  <main class="flex min-h-screen">
+    <!-- Menú lateral izquierdo -->
+    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space-y-6 border-r border-gray-300">
+      <!-- Logo como botón para ir al feed -->
+      <a href="feed.html" class="hover:scale-110 transition mb-4">
+        <img src="/imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18">
+      </a>
+      
+      <!-- Icono 1 - Crear publicación -->
+      <a href="hacer_publicacion.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="2.8" y="2.8" width="18" height="18" rx="4" stroke-width="1"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 2 - Corazón -->
+      <a href="deseas_donar.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Círculo exterior -->
+          <circle cx="12" cy="12" r="10" stroke-width="1"/>
+          <!-- Corazón centrado y reducido -->
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1" 
+            d="M12 9c-0.5-1-1.5-1.7-2.7-1.7-1.5 0-2.8 1.2-2.8 2.7 0 4.2 5.5 7 5.5 7s5.5-2.8 5.5-7c0-1.5-1.3-2.7-2.8-2.7-1.2 0-2.2 0.7-2.7 1.7Z" 
+          />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 3 - Campana -->
+      <a href="notificaciones.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+    </aside>
+
+      
+    <!-- Contenedor Central -->
+    <div class="flex-1 flex flex-col items-center justify-center p-4 relative">
+        
+        <!-- Header (Avatar Usuario Actualizado) -->
+        <div class="absolute top-6 right-8 z-20">
+            <button id="profileBtn" class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-brown cursor-pointer hover:opacity-80 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-brown focus:ring-offset-2">
+                <img id="profileImg" src="imagenes/perfil-gaby.jpg" alt="Perfil" class="w-full h-full object-cover">
+            </button>
+        </div>
+
+        <!-- Título -->
+        <h1 class="text-4xl md:text-5xl font-bold text-hero-tittle-color mb-16 text-center">
+            ¿Qué deseas donar?
+        </h1>
+
+        <!-- Grid de Botones -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-12 max-w-4xl">
+            
+            <!-- Botón 1: Ropa -->
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
+              <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
+                  <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <!-- Icono de Camisa/Playera Mejorado -->
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" class="hidden"/> <!-- Oculto anterior si existía -->
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z" />
+                  </svg>
+              </div>
+              <span class="text-gray-800 font-bold text-lg">Ropa</span>
+            </button>
+            </a>
+
+            <!-- Botón 2: Utensilios -->
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
+              <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
+                  <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <!-- Tenedor (Izquierda) -->
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 3v5a2 2 0 002 2h0a2 2 0 002-2V3m-2 7v11m-2-18h4" />
+                      <!-- Cuchara (Derecha) -->
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 3a3 3 0 00-3 3v2a3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3z m0 8v10" />
+                  </svg>
+              </div>
+              <span class="text-gray-800 font-bold text-lg">Utensilios</span>
+            </button>
+            </a>
+
+            <!-- Botón 3: Muebles -->
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
+                <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
+                    <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                        <!-- Sofá -->
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 12V8H4v4M4 12v7h16v-7M6 19v2m12-2v2" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16" />
+                    </svg>
+                </div>
+                <span class="text-gray-800 font-bold text-lg">Muebles</span>
+            </button>
+            </a>
+
+            <!-- Botón 4: Medicina -->
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
+                    <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
+                        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <!-- Asa del botiquín -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+                            <!-- Caja del botiquín -->
+                            <rect x="2" y="6" width="20" height="14" rx="2" />
+                            <!-- Cruz médica -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m-3-3h6" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-800 font-bold text-lg">Medicina</span>
+            </button>
+            </a>
+
+            <!-- Botón 5: Comida -->
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
+                    <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
+                        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <!-- Pan superior -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 5h12a2 2 0 0 1 2 2v2H4V7a2 2 0 0 1 2-2z" />
+                            <!-- Pan inferior -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 19h12a2 2 0 0 0 2-2v-2H4v2a2 2 0 0 0 2 2z" />
+                            <!-- Relleno (Lechuga/Jamón) - Líneas onduladas y rectas -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 11h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 13c1.333 1 2.667-1 4 0s2.667 1 4 0 2.667-1 4 0 2.667 1 4 0" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-800 font-bold text-lg">Comida</span>
+              </button>
+            </a>
+
+            <!-- Botón 6: Utiles -->
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
+                    <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
+                        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <!-- Libro abierto -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-800 font-bold text-lg">Utiles</span>
+              </button>
+            </a>
+
+        </div>
+    </div>
+    </main>
+
+    <script>
+        function selectCategory(categoryName) {
+            // Aquí puedes redirigir a un paso 2 o guardar la selección
+            console.log("Categoría seleccionada:", categoryName);
+            alert("Has seleccionado: " + categoryName + ". Aquí iría el formulario de detalles.");
+            
+            // Ejemplo de redirección a un formulario específico si lo tuvieras:
+            // window.location.href = 'formulario_donacion.html?cat=' + categoryName;
+        }
+
+        // Función: Animación de perfil (click en foto de perfil)
+        function initProfileAnimation() {
+            const profileBtn = document.getElementById('profileBtn');
+            if (!profileBtn) return;
+            
+            profileBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const profileImg = document.getElementById('profileImg');
+                if (!profileImg) return;
+                
+                const rect = profileBtn.getBoundingClientRect();
+                
+                // Crear clon animado
+                const clone = profileImg.cloneNode(true);
+                clone.style.position = 'fixed';
+                clone.style.left = rect.left + 'px';
+                clone.style.top = rect.top + 'px';
+                clone.style.width = rect.width + 'px';
+                clone.style.height = rect.height + 'px';
+                clone.style.borderRadius = '50%';
+                clone.style.zIndex = '9999';
+                clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
+                clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+                clone.style.border = '4px solid #A25D53';
+                clone.style.opacity = '1';
+                document.body.appendChild(clone);
+                
+                // Forzar reflow
+                clone.offsetHeight;
+                
+                // Posición final: exactamente donde está la foto en profile.html
+                const sidebarWidth = 96;
+                const paddingLeft = 48;
+                const finalSize = 192;
+                const finalLeft = sidebarWidth + paddingLeft;
+                const finalTop = 64;
+                
+                clone.style.left = finalLeft + 'px';
+                clone.style.top = finalTop + 'px';
+                clone.style.width = finalSize + 'px';
+                clone.style.height = finalSize + 'px';
+                clone.style.opacity = '0.3';
+                
+                // Navegar después de la animación
+                setTimeout(function() {
+                    window.location.href = 'profile.html';
+                }, 1200);
+            });
+        }
+
+        // Inicializar animación de perfil cuando el DOM está listo
+        document.addEventListener('DOMContentLoaded', function() {
+            initProfileAnimation();
+        });
+    </script>
+</body>
+</html>

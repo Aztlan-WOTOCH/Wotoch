@@ -1,0 +1,82 @@
+
+        /* Estilo personalizado para el logo y la tarjeta */
+        .accion_mes {
+            background-color: #964B3B; /* primary-brown */
+            color: white;
+            padding: 0.5rem 1rem; /*Aplica el padding (relleno) de 1 rem a todos los lados*/
+            border-radius: 0.5rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+        .hero-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .nav-link-animated{
+            position:relative; 
+            text-decoration: none; /*Se quita el subrayado por defecto*/
+            padding-bottom: 4px; /*Un pequeño espacio para que el subrayado no este pegado al texto*/
+        }
+        .nav-link-animated::after{
+            content: '';
+            position: absolute;
+            width: 0; /*Inicia sin ancho*/
+            height: 2px; /*Grosor del subrayado*/
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transition: width 0.3s ease-in-out; /*la animación*/
+        }
+        .nav-link-animated:hover::after{
+            width: 100%; /*Se expande al 100% en hover*/
+        }
+/* Estilos del logo */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+    color: #A25D53; /* primary-brown */
+}
+
+.logo-text {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: bold;
+    letter-spacing: -0.025em; /* tracking-tight */
+    color: #A25D53; /* primary-brown */
+    padding-top: 0.25rem; /* pt-1 */
+}
+:root {
+    --primary-brown: #A25D53;
+    --logo-font-size: 1.875rem;
+    --logo-letter-spacing: -0.025em;
+    --logo-vertical-spacing: -0.5rem;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    margin-top: var(--logo-vertical-spacing);
+    margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+    color: var(--primary-brown);
+}
+
+.logo-text {
+    font-size: var(--logo-font-size);
+    font-weight: bold;
+    letter-spacing: var(--logo-letter-spacing);
+    color: var(--primary-brown);
+    padding-top: 0.25rem;
+}
