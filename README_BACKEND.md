@@ -21,8 +21,6 @@ GOOGLE_CLIENT_ID=tu_google_client_id
 GOOGLE_CLIENT_SECRET=tu_google_client_secret
 ```
 
-**Nota:** Las credenciales ya están en `.env` local. No subas `.env` a GitHub (está en `.gitignore`).
-
 ### 3. Iniciar Servidor
 ```bash
 node src/index.js
