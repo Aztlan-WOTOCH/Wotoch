@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wotoch - Hacer Publicación</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'hero-tittle-color': '#D67840',
+            'primary-brown': '#A25D53',
+            'light-brown': '#E8DDC8',
+            'text-brown': '#000000',
+            'teal-brand': '#0D9488',
+            'sdg-12': '#C99933',
+            'sdg-11': '#E66A27',
+            'sdg-13': '#408246',
+          },
+          fontFamily: {
+            sans: ['Lexend'],
+          }
+        }
+      }
+    }
+  </script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="bg-white font-sans">
+  <!-- Contenido principal -->
+  <main class="flex min-h-screen">
+    <!-- Menú lateral izquierdo -->
+    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space-y-6 border-r border-gray-300">
+      <!-- Logo -->
+      <img src="/imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18 mb-4">
+
+      <!-- Icono 1 -->
+      <button class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </button>
+      
+      <!-- Icono 2 -->
+      <button class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="2.8" y="2.8" width="18" height="18" rx="4" stroke-width="1"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </button>
+
+      <!-- Icono 3 -->
+      <button class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </button>
+    </aside>
+
+    <!-- Contenedor principal de imagen y formulario -->
+    <div class="flex-1 flex main-container">
+      <!-- Sección de imagen (lado izquierdo) -->
+      <div class="w-1/2 image-section">
+        <div class="image-preview" id="imagePreview">
+          <div class="upload-placeholder">
+            <svg class="h-16 w-16 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+              <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="text-sm text-gray-600">Haz clic para subir una imagen o video</p>
+            <p class="text-xs text-gray-400 mt-1">Se recomienda que sean archivos JPG o MP4 con un tamaño inferior a 20 MB</p>
+          </div>
+          <img id="previewImage" src="" alt="Vista previa">
+          <video id="previewVideo" src="" controls style="display:none;"></video>
+        </div>
+        <input type="file" id="fileInput" accept="image/*,video/*" class="hidden">
+        <button id="removeImageBtn" class="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition hidden">Eliminar archivo</button>
+      </div>
+
+      <!-- Sección del formulario (lado derecho) -->
+      <div class="w-1/2 form-section">
+        <!-- Cabecera con título y foto de perfil -->
+        <div class="header-section">
+          <h1 class="hero-title text-hero-tittle-color text-3xl font-bold">Hacer nueva publicación</h1>
+          <div class="user-profile">
+            <img src="imagenes/perfil-gaby.jpg" alt="Foto de perfil">
+          </div>
+        </div>
+        
+        <!-- Contenedor del formulario con más espacio -->
+        <div class="flex-1 flex flex-col justify-center max-w-md mx-auto w-full">
+          <!-- Título -->
+          <div class="mb-8">
+            <label class="block text-lg font-medium text-gray-700 mb-2">Título</label>
+            <input type="text" placeholder="Ej: Ropa de bebé en buen estado" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-base">
+          </div>
+
+          <!-- Descripción -->
+          <div class="mb-8">
+            <label class="block text-lg font-medium text-gray-700 mb-2">Descripción</label>
+            <textarea rows="5" placeholder="Describe brevemente lo que donarás..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-base resize-none"></textarea>
+          </div>
+
+          <!-- Cita textual o quote -->
+          <div class="mb-8">
+            <label class="block text-lg font-medium text-gray-700 mb-2">Cita textual o quote (opcional)</label>
+            <input type="text" placeholder="Frase que inspire a los demás" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-base">
+          </div>
+
+          <!-- Tipo de donación -->
+          <div class="mb-8">
+            <label class="block text-lg font-medium text-gray-700 mb-2">Tipo de donación</label>
+            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown focus:border-transparent text-base">
+              <option>Ropa</option>
+              <option>Juguetes</option>
+              <option>Libros</option>
+              <option>Electrónicos</option>
+              <option>Muebles</option>
+              <option>Otros</option>
+            </select>
+          </div>
+
+          <!-- Botón publicar -->
+          <button id="publishBtn" class="w-full py-4 bg-primary-brown text-white rounded-xl hover:bg-opacity-90 transition font-semibold shadow-md text-lg mt-8">Publicar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script para manejar la subida de archivos -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const fileInput = document.getElementById('fileInput');
+      const imagePreview = document.getElementById('imagePreview');
+      const previewImage = document.getElementById('previewImage');
+      const previewVideo = document.getElementById('previewVideo');
+      const removeImageBtn = document.getElementById('removeImageBtn');
+      
+      // Cuando se hace clic en el área de vista previa, activa el input de archivo
+      imagePreview.addEventListener('click', function() {
+        fileInput.click();
+      });
+      
+      // Cuando se selecciona un archivo
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+          const file = e.target.files[0];
+          const fileType = file.type.split('/')[0]; // 'image' o 'video'
+          
+          const reader = new FileReader();
+          
+          reader.onload = function(e) {
+            if (fileType === 'image') {
+              previewImage.src = e.target.result;
+              previewImage.style.display = 'block';
+              previewVideo.style.display = 'none';
+            } else if (fileType === 'video') {
+              previewVideo.src = e.target.result;
+              previewVideo.style.display = 'block';
+              previewImage.style.display = 'none';
+            }
+            
+            imagePreview.classList.add('has-image');
+            removeImageBtn.classList.remove('hidden');
+          };
+          
+          reader.readAsDataURL(file);
+        }
+      });
+      
+      // Eliminar la imagen/video seleccionado
+      removeImageBtn.addEventListener('click', function() {
+        fileInput.value = '';
+        previewImage.src = '';
+        previewVideo.src = '';
+        previewImage.style.display = 'none';
+        previewVideo.style.display = 'none';
+        imagePreview.classList.remove('has-image');
+        removeImageBtn.classList.add('hidden');
+      });
+    });
+  </script>
+  <script src="js/api-client-frontend.js"></script>
+  <script>
+    // Conectar botón Publicar con el API
+    document.addEventListener('DOMContentLoaded', function() {
+      const publishBtn = document.getElementById('publishBtn');
+      const titleInput = document.querySelector('input[placeholder="Ej: Ropa de bebé en buen estado"]');
+      const descInput = document.querySelector('textarea[placeholder="Describe brevemente lo que donarás..."]');
+      const previewImage = document.getElementById('previewImage');
+      const previewVideo = document.getElementById('previewVideo');
+
+      if (publishBtn) {
+        publishBtn.addEventListener('click', async function (e) {
+          e.preventDefault();
+          const titulo = titleInput ? titleInput.value.trim() : '';
+          const descripcion = descInput ? descInput.value.trim() : '';
+          // Si existe imagen o video en preview, usar su data URL como url_media
+          const url_media = (previewImage && previewImage.src) ? previewImage.src : ((previewVideo && previewVideo.src) ? previewVideo.src : '');
+
+          if (!titulo || !descripcion) {
+            alert('Por favor completa el título y la descripción antes de publicar.');
+            return;
+          }
+
+          try {
+            const result = await window.wotochApi.crearPublicacion(titulo, descripcion, url_media);
+            if (result && result.id) {
+              alert('Publicación creada correctamente.');
+              // limpiar formulario
+              if (titleInput) titleInput.value = '';
+              if (descInput) descInput.value = '';
+              if (previewImage) { previewImage.src = ''; previewImage.style.display = 'none'; }
+              if (previewVideo) { previewVideo.src = ''; previewVideo.style.display = 'none'; }
+            } else {
+              console.warn('Respuesta creación publicación:', result);
+              alert('No se pudo crear la publicación. Revisa la consola para más detalles.');
+            }
+          } catch (err) {
+            console.error(err);
+            alert('Error al crear la publicación. Revisa la consola.');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
