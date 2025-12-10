@@ -408,3 +408,14 @@ document.addEventListener('DOMContentLoaded', function() {
         removeImageBtn.classList.add('hidden');
       });
     });
+});
+
+// ==========================================
+// FUNCIONES REUTILIZABLES PARA TODAS LAS PÁGINAS
+// ==========================================
+
+// Función: Selección de categoría (deseas_donar.html)
+function selectCategory(categoryName) {
+    console.log("Categoría seleccionada:", categoryName);
+    alert("Has seleccionado: " + categoryName + ". Aquí iría el formulario de detalles.");
+}

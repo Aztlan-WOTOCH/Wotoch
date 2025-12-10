@@ -184,63 +184,7 @@
     </div>
     </main>
 
-    <script>
-        function selectCategory(categoryName) {
-            // Aquí puedes redirigir a un paso 2 o guardar la selección
-            console.log("Categoría seleccionada:", categoryName);
-            alert("Has seleccionado: " + categoryName + ". Aquí iría el formulario de detalles.");
-            
-            // Ejemplo de redirección a un formulario específico si lo tuvieras:
-            // window.location.href = 'formulario_donacion.html?cat=' + categoryName;
-        }
-    </script>
-
-    <!-- Script de animación de perfil -->
-    <script>
-      document.getElementById('profileBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const profileBtn = this;
-        const profileImg = document.getElementById('profileImg');
-        const rect = profileBtn.getBoundingClientRect();
-        
-        // Crear clon animado
-        const clone = profileImg.cloneNode(true);
-        clone.style.position = 'fixed';
-        clone.style.left = rect.left + 'px';
-        clone.style.top = rect.top + 'px';
-        clone.style.width = rect.width + 'px';
-        clone.style.height = rect.height + 'px';
-        clone.style.borderRadius = '50%';
-        clone.style.zIndex = '9999';
-        clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
-        clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
-        clone.style.border = '4px solid #A25D53';
-        clone.style.opacity = '1';
-        document.body.appendChild(clone);
-        
-        // Forzar reflow
-        clone.offsetHeight;
-        
-        // Posición final: exactamente donde está la foto en profile.html
-        // sidebar = 96px (w-24), padding = 48px (px-12)
-        const sidebarWidth = 96;
-        const paddingLeft = 48;
-        const finalSize = 192; // w-48 = 192px
-        const finalLeft = sidebarWidth + paddingLeft;
-        const finalTop = 64; // pt-16 = 64px
-        
-        clone.style.left = finalLeft + 'px';
-        clone.style.top = finalTop + 'px';
-        clone.style.width = finalSize + 'px';
-        clone.style.height = finalSize + 'px';
-        clone.style.opacity = '0.3';
-        
-        // Navegar después de la animación
-        setTimeout(function() {
-          window.location.href = 'profile.html';
-        }, 1200);
-      });
-    </script>
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 </html>
