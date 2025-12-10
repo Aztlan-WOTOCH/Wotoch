@@ -364,6 +364,7 @@
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
         publicacionActual = this.dataset.id;
+        console.log('Abriendo modal de eliminación para publicación:', publicacionActual);
         modalEliminar.classList.remove('hidden');
       });
     });
@@ -400,26 +401,39 @@
 
     // Eliminar publicación
     btnConfirmarEliminar.addEventListener('click', function() {
+      console.log('Confirmando eliminación de publicación:', publicacionActual);
+      console.log('Modal antes de cerrar:', modalEliminar.className);
+      
       // Aquí iría la lógica para eliminar la publicación del servidor
       console.log('Eliminando publicación:', publicacionActual);
+
+      // Cerrar el modal primero
+      modalEliminar.classList.add('hidden');
+      console.log('Modal después de cerrar:', modalEliminar.className);
 
       // Remover la publicación del DOM
       const botonEliminar = document.querySelector(`button.btnEliminar[data-id="${publicacionActual}"]`);
       if (botonEliminar) {
         const publicacion = botonEliminar.closest('.rounded-2xl');
-        publicacion.remove();
+        if (publicacion) {
+          publicacion.remove();
+          console.log('Publicación removida del DOM');
+        }
       }
 
       // Actualizar contador de publicaciones
-      const contador = document.querySelector('p:has-text("publicaciones")');
-      if (contador) {
-        const numberElement = contador.previousElementSibling;
-        let count = parseInt(numberElement.textContent);
-        numberElement.textContent = count - 1;
+      const stats = document.querySelector('.flex.gap-12.mb-6');
+      if (stats) {
+        const primerDiv = stats.querySelector('div');
+        const numberElement = primerDiv.querySelector('p:first-child');
+        if (numberElement) {
+          let count = parseInt(numberElement.textContent);
+          if (count > 0) {
+            numberElement.textContent = count - 1;
+          }
+        }
       }
 
-      // Cerrar el modal
-      modalEliminar.classList.add('hidden');
       publicacionActual = null;
       
       // Mostrar mensaje de éxito después de cerrar el modal
