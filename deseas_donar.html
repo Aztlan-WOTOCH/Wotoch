@@ -35,6 +35,17 @@
   
   <link rel="stylesheet" href="styles.css">
 
+  <style>
+      /* Efecto hover suave para los botones de categoría */
+      .category-btn {
+          transition: all 0.3s ease;
+      }
+      .category-btn:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(162, 93, 83, 0.3);
+      }
+  </style>
+
 </head>
 
 <body class="bg-white font-sans">
@@ -85,23 +96,24 @@
     <!-- Contenedor Central -->
     <div class="flex-1 flex flex-col items-center justify-center p-4 relative">
         
-        <!-- Foto de Perfil del Usuario -->
-        <div class="absolute top-4 right-4 sm:top-8 sm:right-8">
-            <div id="profileBtn" class="user-profile cursor-pointer hover:scale-110 transition">
-                <img id="profileImg" src="imagenes/perfil-gaby.jpg" alt="Foto de perfil">
-            </div>
+        <!-- Header (Avatar Usuario Actualizado) -->
+        <div class="absolute top-6 right-8 z-20">
+            <button id="profileBtn" class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-brown cursor-pointer hover:opacity-80 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-brown focus:ring-offset-2">
+                <img id="profileImg" src="imagenes/perfil-gaby.jpg" alt="Perfil" class="w-full h-full object-cover">
+            </button>
         </div>
-        
+
         <!-- Título -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-hero-tittle-color mb-8 sm:mb-16 text-center pt-16 sm:pt-0">
+        <h1 class="text-4xl md:text-5xl font-bold text-hero-tittle-color mb-16 text-center">
             ¿Qué deseas donar?
         </h1>
 
         <!-- Grid de Botones -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 sm:gap-x-16 gap-y-8 sm:gap-y-12 max-w-4xl">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-12 max-w-4xl">
             
             <!-- Botón 1: Ropa -->
-            <button class="category-btn flex flex-col items-center group" onclick="selectCategory('Ropa')">
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
               <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
                   <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                       <!-- Icono de Camisa/Playera Mejorado -->
@@ -111,9 +123,11 @@
               </div>
               <span class="text-gray-800 font-bold text-lg">Ropa</span>
             </button>
+            </a>
 
             <!-- Botón 2: Utensilios -->
-            <button class="category-btn flex flex-col items-center group" onclick="selectCategory('Utensilios')">
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
               <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
                   <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                       <!-- Tenedor (Izquierda) -->
@@ -123,10 +137,12 @@
                   </svg>
               </div>
               <span class="text-gray-800 font-bold text-lg">Utensilios</span>
-              </button>
+            </button>
+            </a>
 
             <!-- Botón 3: Muebles -->
-            <button class="category-btn flex flex-col items-center group" onclick="selectCategory('Muebles')">
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
                 <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
                     <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                         <!-- Sofá -->
@@ -136,9 +152,11 @@
                 </div>
                 <span class="text-gray-800 font-bold text-lg">Muebles</span>
             </button>
+            </a>
 
             <!-- Botón 4: Medicina -->
-            <button class="category-btn flex flex-col items-center group" onclick="selectCategory('Medicina')">
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
                     <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
                         <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <!-- Asa del botiquín -->
@@ -151,9 +169,11 @@
                     </div>
                     <span class="text-gray-800 font-bold text-lg">Medicina</span>
             </button>
+            </a>
 
             <!-- Botón 5: Comida -->
-            <button class="category-btn flex flex-col items-center group" onclick="selectCategory('Comida')">
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
                     <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
                         <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <!-- Pan superior -->
@@ -168,9 +188,11 @@
                     </div>
                     <span class="text-gray-800 font-bold text-lg">Comida</span>
               </button>
+            </a>
 
             <!-- Botón 6: Utiles -->
-            <button class="category-btn flex flex-col items-center group" onclick="selectCategory('Utiles')">
+            <a href="instuciones_acopio.html" class="hover:scale-110 transition mb-4">
+            <button class="category-btn flex flex-col items-center group">
                     <div class="w-28 h-28 bg-primary-brown rounded-full flex items-center justify-center mb-3 shadow-lg">
                         <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <!-- Libro abierto -->
@@ -179,63 +201,76 @@
                     </div>
                     <span class="text-gray-800 font-bold text-lg">Utiles</span>
               </button>
+            </a>
 
         </div>
     </div>
     </main>
 
-    <!-- Scripts -->
-    <script src="main.js"></script>
     <script>
-        // Inicializar animación de perfil para deseas_donar.html
-        document.addEventListener('DOMContentLoaded', function() {
+        function selectCategory(categoryName) {
+            // Aquí puedes redirigir a un paso 2 o guardar la selección
+            console.log("Categoría seleccionada:", categoryName);
+            alert("Has seleccionado: " + categoryName + ". Aquí iría el formulario de detalles.");
+            
+            // Ejemplo de redirección a un formulario específico si lo tuvieras:
+            // window.location.href = 'formulario_donacion.html?cat=' + categoryName;
+        }
+
+        // Función: Animación de perfil (click en foto de perfil)
+        function initProfileAnimation() {
             const profileBtn = document.getElementById('profileBtn');
-            if (profileBtn) {
-                profileBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const profileImg = document.getElementById('profileImg');
-                    if (!profileImg) return;
-                    
-                    const rect = profileBtn.getBoundingClientRect();
-                    
-                    // Crear clon animado
-                    const clone = profileImg.cloneNode(true);
-                    clone.style.position = 'fixed';
-                    clone.style.left = rect.left + 'px';
-                    clone.style.top = rect.top + 'px';
-                    clone.style.width = rect.width + 'px';
-                    clone.style.height = rect.height + 'px';
-                    clone.style.borderRadius = '50%';
-                    clone.style.zIndex = '9999';
-                    clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
-                    clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
-                    clone.style.border = '4px solid #A25D53';
-                    clone.style.opacity = '1';
-                    document.body.appendChild(clone);
-                    
-                    // Forzar reflow
-                    clone.offsetHeight;
-                    
-                    // Posición final
-                    const sidebarWidth = 96;
-                    const paddingLeft = 48;
-                    const finalSize = 192;
-                    const finalLeft = sidebarWidth + paddingLeft;
-                    const finalTop = 64;
-                    
-                    clone.style.left = finalLeft + 'px';
-                    clone.style.top = finalTop + 'px';
-                    clone.style.width = finalSize + 'px';
-                    clone.style.height = finalSize + 'px';
-                    clone.style.opacity = '0.3';
-                    
-                    // Navegar después de la animación
-                    setTimeout(function() {
-                        window.location.href = 'profile.html';
-                    }, 1200);
-                });
-            }
+            if (!profileBtn) return;
+            
+            profileBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const profileImg = document.getElementById('profileImg');
+                if (!profileImg) return;
+                
+                const rect = profileBtn.getBoundingClientRect();
+                
+                // Crear clon animado
+                const clone = profileImg.cloneNode(true);
+                clone.style.position = 'fixed';
+                clone.style.left = rect.left + 'px';
+                clone.style.top = rect.top + 'px';
+                clone.style.width = rect.width + 'px';
+                clone.style.height = rect.height + 'px';
+                clone.style.borderRadius = '50%';
+                clone.style.zIndex = '9999';
+                clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
+                clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+                clone.style.border = '4px solid #A25D53';
+                clone.style.opacity = '1';
+                document.body.appendChild(clone);
+                
+                // Forzar reflow
+                clone.offsetHeight;
+                
+                // Posición final: exactamente donde está la foto en profile.html
+                const sidebarWidth = 96;
+                const paddingLeft = 48;
+                const finalSize = 192;
+                const finalLeft = sidebarWidth + paddingLeft;
+                const finalTop = 64;
+                
+                clone.style.left = finalLeft + 'px';
+                clone.style.top = finalTop + 'px';
+                clone.style.width = finalSize + 'px';
+                clone.style.height = finalSize + 'px';
+                clone.style.opacity = '0.3';
+                
+                // Navegar después de la animación
+                setTimeout(function() {
+                    window.location.href = 'profile.html';
+                }, 1200);
+            });
+        }
+
+        // Inicializar animación de perfil cuando el DOM está listo
+        document.addEventListener('DOMContentLoaded', function() {
+            initProfileAnimation();
         });
     </script>
 </body>
