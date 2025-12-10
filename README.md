@@ -27,9 +27,9 @@ Con esta iniciativa contribuimos a los **Objetivos 1 (Fin de la pobreza), 2 (Ham
 |--------|---------------|-----------------|
 | **Balam Álvarez** | Líder de proyecto / QA | Documentación, pruebas de calidad y control de versiones |
 | **Erwin Amezcua** | Front-end / DevOps | Desarrollo general de la página web y gestión del repositorio |
-| **Kamila Pineda** | Back-end / Diseñadora | Diseño en Figma e integración con base de datos Firebase |
+| **Kamila Pineda** | Back-end / Diseñadora | Diseño en Figma e integración con base de datos Supebase |
 | **Victoria Hernández** | Front-end / Analista | Flujo Lucidchart, diseño en Figma y desarrollo de vistas |
-| **Isaac Silis** | Back-end | Implementación y mantenimiento de base de datos Firebase |
+| **Isaac Silis** | Back-end | Implementación y mantenimiento de base de datos Supebase |
 
 *Para tareas detalladas por sprint consultar la hoja «Backlog» del enlace abajo.*
 
@@ -51,7 +51,7 @@ Plan de tareas, responsables y fechas (Google Sheets público):
 | Capa | Stack |
 |------|-------|
 | **Front-end** | HTML5, CSS3, JavaScript vanilla |
-| **Back-end** | Firebase (Auth & Firestore) |
+| **Back-end** | Supebase (Auth & Firestore) |
 | **Diseño** | Figma, Lucidchart |
 | **Control de versiones** | GitHub Flow – rama `front-end` protegida vía PR |
 
