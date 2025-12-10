@@ -157,19 +157,20 @@
       clone.style.zIndex = '9999';
       clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
       clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
-      clone.style.border = '2px solid #A25D53';
+      clone.style.border = '4px solid #A25D53';
       clone.style.opacity = '1';
       document.body.appendChild(clone);
       
       // Forzar reflow
       clone.offsetHeight;
       
-      // Posición final
+      // Posición final: exactamente donde está la foto en profile.html
+      // sidebar = 96px (w-24), padding = 48px (px-12)
       const sidebarWidth = 96;
       const paddingLeft = 48;
-      const finalSize = 192;
-      const finalLeft = window.innerWidth - 256 - paddingLeft;
-      const finalTop = 64;
+      const finalSize = 192; // w-48 = 192px
+      const finalLeft = sidebarWidth + paddingLeft;
+      const finalTop = 64; // pt-16 = 64px
       
       clone.style.left = finalLeft + 'px';
       clone.style.top = finalTop + 'px';
