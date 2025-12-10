@@ -1000,3 +1000,42 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(162, 93, 83, 0.3);
 }
+
+/* Botón Editar Perfil */
+.edit-profile-btn {
+    padding: 0.15rem 0.35rem;
+    font-size: 0.7rem;
+    background-color: var(--light-brown);
+    color: #1f2937;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    border: 1px solid #d1d5db;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.edit-profile-btn:hover {
+    opacity: 0.8;
+}
+
+/* Tablet (768px) */
+@media (min-width: 768px) {
+    .edit-profile-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin: 0;
+    }
+}
+
+/* Desktop (1024px) */
+@media (min-width: 1024px) {
+    .edit-profile-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}

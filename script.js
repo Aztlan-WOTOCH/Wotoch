@@ -127,3 +127,69 @@ inputs.forEach(input => {
 });
 
 console.log('WOTOCH - Donaciones con Propósito cargado correctamente');
+
+// ==========================================
+// FUNCIONES REUTILIZABLES PARA TODAS LAS PÁGINAS
+// ==========================================
+
+// Función: Animación de perfil (click en foto de perfil)
+function initProfileAnimation() {
+    const profileBtn = document.getElementById('profileBtn');
+    if (!profileBtn) return;
+    
+    profileBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const profileImg = document.getElementById('profileImg');
+        if (!profileImg) return;
+        
+        const rect = profileBtn.getBoundingClientRect();
+        
+        // Crear clon animado
+        const clone = profileImg.cloneNode(true);
+        clone.style.position = 'fixed';
+        clone.style.left = rect.left + 'px';
+        clone.style.top = rect.top + 'px';
+        clone.style.width = rect.width + 'px';
+        clone.style.height = rect.height + 'px';
+        clone.style.borderRadius = '50%';
+        clone.style.zIndex = '9999';
+        clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
+        clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+        clone.style.border = '4px solid #A25D53';
+        clone.style.opacity = '1';
+        document.body.appendChild(clone);
+        
+        // Forzar reflow
+        clone.offsetHeight;
+        
+        // Posición final: exactamente donde está la foto en profile.html
+        const sidebarWidth = 96;
+        const paddingLeft = 48;
+        const finalSize = 192;
+        const finalLeft = sidebarWidth + paddingLeft;
+        const finalTop = 64;
+        
+        clone.style.left = finalLeft + 'px';
+        clone.style.top = finalTop + 'px';
+        clone.style.width = finalSize + 'px';
+        clone.style.height = finalSize + 'px';
+        clone.style.opacity = '0.3';
+        
+        // Navegar después de la animación
+        setTimeout(function() {
+            window.location.href = 'profile.html';
+        }, 1200);
+    });
+}
+
+// Función: Selección de categoría (deseas_donar.html)
+function selectCategory(categoryName) {
+    console.log("Categoría seleccionada:", categoryName);
+    alert("Has seleccionado: " + categoryName + ". Aquí iría el formulario de detalles.");
+}
+
+// Inicializar funciones cuando el DOM está listo
+document.addEventListener('DOMContentLoaded', function() {
+    initProfileAnimation();
+});

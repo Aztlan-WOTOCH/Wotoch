@@ -54,7 +54,7 @@
             <!-- Logo -->
             <a href="index.html" class="flex flex-col items-start leading-none -space-y-2">
                 <svg width="135" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
-                    <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"/>
                 </svg>
                 <div class="text-3xl font-bold tracking-tight text-primary-brown pt-1">WOTOCH</div>
             </a>
@@ -84,6 +84,35 @@
                 </button>
             </nav>
         </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden fixed inset-0 bg-white z-50 p-6 transform transition-transform duration-300 -translate-x-full" id="mobileMenu">
+            <div class="flex justify-between items-center mb-8">
+                <a href="index.html" class="flex flex-col items-start leading-none -space-y-2">
+                    <svg width="100" height="20" viewBox="0 0 100 20" fill="none" class="text-primary-brown">
+                        <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5"/>
+                    </svg>
+                    <div class="text-2xl font-bold tracking-tight text-primary-brown pt-1">WOTOCH</div>
+                </a>
+                <button class="text-3xl text-primary-brown" id="closeMobileMenu">&times;</button>
+            </div>
+            
+            <nav class="flex flex-col space-y-6">
+                <a href="index.html" class="text-xl font-semibold text-gray-700 hover:text-primary-brown py-2 border-b border-gray-200">Inicio</a>
+                <a href="como-funciona.html" class="text-xl font-semibold text-primary-brown py-2 border-b border-gray-200">¿Cómo funciona?</a>
+                <a href="quienes-somos.html" class="text-xl font-semibold text-gray-700 hover:text-primary-brown py-2 border-b border-gray-200">¿Quiénes somos?</a>
+                
+                <!-- Botones de acción SOLO EN EL MENÚ MÓVIL -->
+                <div class="pt-4 space-y-4">
+                    <button class="w-full py-3 text-white bg-primary-brown hover:bg-opacity-90 rounded-xl transition duration-300" onclick="openModal('loginModal')">
+                        Iniciar sesión
+                    </button>
+                    <button class="w-full py-3 text-text-brown bg-light-brown hover:bg-opacity-80 rounded-xl transition duration-300" onclick="openModal('registerModal')">
+                        Regístrate
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <!-- Contenido Principal -->
@@ -104,8 +133,8 @@
         </div>
 
         <!-- Botón Flecha Hacia Abajo -->
-        <div class="mt-auto mb-12 animate-bounce z-10" id="arrow-container">
-            <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+        <div class="mt-auto mb-12 z-10" id="arrow-container">
+            <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
@@ -190,7 +219,7 @@
 
     <!-- Modal de Registro -->
     <div id="registerModal" class="modal hidden modal-normal">
-        <div class="bg-white rounded-2xl shadow-2xl w-[480px] h-[600px] flex flex-col mx-4 overflow-hidden relative">
+        <div class="bg-white rounded-2xl shadow-2xl w-[480px] h-[600px] flex flex-col mx-4">
             <button onclick="closeModal('registerModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-50">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -360,40 +389,59 @@
                 // Slide 4: Azul (Registro) - FORMULARIO EMBEBIDO
                 bgColor: 'bg-step-blue-bg',
                 footerVisible: false,
+                isSlide4: true,
                 content: `
-                    <div class="grid lg:grid-cols-2 gap-12 items-center w-full fade-in">
-                        <div class="text-left">
-                            <h2 class="text-4xl md:text-5xl font-extrabold text-hero-tittle-color leading-tight mb-6">
+                    <div class="w-screen h-screen flex fade-in">
+                        <!-- Columna Izquierda - Texto Centrado -->
+                        <div class="flex-1 flex flex-col items-center justify-center">
+                            <h2 class="text-6xl font-extrabold text-hero-tittle-color leading-tight text-center max-w-lg">
                                 Regístrate para poder empezar a donar
                             </h2>
-                            <p class="text-xl text-gray-600">Únete a nuestra comunidad y haz el cambio hoy mismo.</p>
                         </div>
-                        <!-- Formulario Derecha -->
-                        <div class="bg-white p-8 rounded-3xl shadow-xl max-w-md mx-auto w-full">
-                            <div class="text-center mb-6">
-                                <h3 class="text-2xl font-bold text-primary-brown">Bienvenido a WOTOCH</h3>
+                        <!-- Columna Derecha - Formulario pegado a la derecha -->
+                        <div class="bg-white w-[520px] h-full flex flex-col py-14 px-20 shadow-lg border-l-4 border-gray-100">
+                                <div class="text-center mb-10">
+                                    <div class="flex flex-col items-center leading-none space-y-1 mb-8">
+                                        <svg width="280" height="40" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
+                                            <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter"/>
+                                        </svg>
+                                        <div class="text-5xl font-bold tracking-tight text-primary-brown">WOTOCH</div>
+                                    </div>
+                                    <h3 class="text-2xl font-semibold text-gray-900 leading-snug">Te damos la<br>bienvenida<br>a WOTOCH</h3>
+                                </div>
+                                <form class="space-y-5 flex-1" onsubmit="event.preventDefault(); alertCustom('¡Registro exitoso!');">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-800 mb-2">Correo electrónico</label>
+                                        <input type="email" placeholder="Ingresa tu correo" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-brown focus:border-primary-brown focus:outline-none text-sm transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-800 mb-2">Contraseña</label>
+                                        <input type="password" placeholder="Crea una contraseña" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-brown focus:border-primary-brown focus:outline-none text-sm transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-800 mb-2">Fecha de nacimiento</label>
+                                        <input type="date" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-brown focus:border-primary-brown focus:outline-none text-sm transition">
+                                    </div>
+                                    <button type="submit" class="w-full bg-primary-brown text-white py-3.5 rounded-full hover:bg-opacity-90 font-bold text-base shadow-lg transition transform hover:scale-105">
+                                        Registrarse
+                                    </button>
+                                    <div class="relative flex items-center py-2">
+                                        <div class="flex-grow border-t-2 border-gray-200"></div>
+                                        <span class="flex-shrink mx-4 text-gray-500 font-semibold text-lg">o</span>
+                                        <div class="flex-grow border-t-2 border-gray-200"></div>
+                                    </div>
+                                    <button type="button" class="w-full border-2 border-gray-300 text-gray-800 py-3 rounded-xl hover:bg-gray-100 flex items-center justify-center gap-3 font-semibold text-sm transition">
+                                        <svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                        Continuar con Google
+                                    </button>
+                                </form>
+                                <div class="pt-6 mt-6 border-t-2 border-gray-200 text-center">
+                                    <p class="text-gray-700 text-base font-light">
+                                        ¿Ya tienes una cuenta? 
+                                        <a href="#" class="text-primary-brown font-light hover:underline">Iniciar Sesión</a>
+                                    </p>
+                                </div>
                             </div>
-                            <form class="space-y-4" onsubmit="event.preventDefault(); alertCustom('¡Registro exitoso!');">
-                                <div>
-                                    <label class="block text-xs font-medium text-gray-700 mb-1">Correo electrónico</label>
-                                    <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-medium text-gray-700 mb-1">Contraseña</label>
-                                    <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-medium text-gray-700 mb-1">Fecha de nacimiento</label>
-                                    <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brown">
-                                </div>
-                                <button type="submit" class="w-full bg-primary-brown text-white py-3 rounded-lg hover:bg-opacity-90 font-bold shadow-md transition transform hover:scale-105">
-                                    Registrarse
-                                </button>
-                                <button type="button" class="w-full border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 flex items-center justify-center gap-2">
-                                    <svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                                    Google
-                                </button>
-                            </form>
                         </div>
                     </div>`
             }
@@ -407,6 +455,14 @@
             renderSlide(currentSlide);
         }
 
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            renderSlide(currentSlide);
+        }
+
         function renderSlide(index) {
             const slide = slides[index];
             const mainContainer = document.getElementById('main-container');
@@ -415,26 +471,60 @@
             const arrowContainer = document.getElementById('arrow-container');
 
             mainContainer.className = `flex-grow flex flex-col justify-center items-center px-4 content-center-vertical relative transition-colors duration-500 ${slide.bgColor}`;
+            
+            let arrowHTML = '';
+            
+            // Para el slide 4, solo mostrar botón de regresar
+            if (slide.isSlide4) {
+                arrowHTML = `
+                    <button onclick="prevSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce fixed top-20 left-1/2 transform -translate-x-1/2 z-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                        </svg>
+                    </button>
+                `;
+            } else if (index > 0) {
+                // Si no es el primer slide ni el 4, agregar flecha hacia arriba para regresar
+                arrowHTML = `
+                    <div class="flex gap-6 justify-center items-end">
+                        <button onclick="prevSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                            </svg>
+                        </button>
+                        <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                `;
+            } else {
+                // Solo flecha hacia abajo en el primer slide
+                arrowHTML = `
+                    <button onclick="nextSlide()" class="w-16 h-16 bg-hero-tittle-color rounded-2xl flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                `;
+            }
+            
+            arrowContainer.innerHTML = arrowHTML;
+            
+            // Agregar animación de bounce solo al botón de siguiente
+            if (index === 0) {
+                arrowContainer.classList.add('animate-bounce');
+            } else {
+                arrowContainer.classList.remove('animate-bounce');
+            }
+
             dynamicContent.innerHTML = slide.content;
 
             if (slide.footerVisible) {
                 introFooter.style.display = 'block';
             } else {
                 introFooter.style.display = 'none';
-            }
-
-            if (index === slides.length - 1) {
-                arrowContainer.querySelector('button').innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                `;
-            } else {
-                arrowContainer.querySelector('button').innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                `;
             }
         }
 
@@ -538,5 +628,6 @@
             }, 300);
         }
     </script>
+    <script src="main.js"></script>
 </body>
 </html>

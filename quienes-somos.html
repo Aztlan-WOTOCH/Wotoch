@@ -46,10 +46,10 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             
             <!-- Logo (WOTOCH con Techo usando SVG) -->
-            <a href="Inicio.html" class="flex flex-col items-start leading-none -space-y-2">
+            <a href="index.html" class="flex flex-col items-start leading-none -space-y-2">
                 <!-- SVG del techo -->
-                <svg width="135" height=" " viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
-                    <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="135" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-brown">
+                    <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"/>
                 </svg>
                 <!-- Texto WOTOCH -->
                 <div class="text-3xl font-bold tracking-tight text-primary-brown pt-1">WOTOCH</div>
@@ -58,18 +58,56 @@
             <!-- Menú de navegación y botones de acción -->
             <nav class="flex items-center space-x-4 lg:space-x-6">
                 <!-- Enlaces de navegación -->
-                <a href="inicio.html" class="hidden md:inline text-gray-700 hover:text-primary-brown transition nav-link-animated">Inicio</a>
+                <a href="index.html" class="hidden md:inline text-gray-700 hover:text-primary-brown transition nav-link-animated">Inicio</a>
                 <a href="como-funciona.html" class="hidden md:inline text-gray-700 hover:text-primary-brown transition nav-link-animated">¿Cómo funciona?</a>
                 <!-- ¡CAMBIO! Este es ahora el enlace activo -->
                 <a href="quienes-somos.html" class="hidden md:inline text-primary-brown font-semibold transition">¿Quiénes somos?</a>
 
-                <!-- Botones de acción -->
-                <button class="px-5 py-2.5 text-white bg-primary-brown hover:bg-opacity-90 rounded-xl transition duration-300 shadow-md">
-                    Iniciar sesión
+                <!-- Botones de acción - OCULTOS EN MÓVIL -->
+                <div class="hidden md:flex space-x-4">
+                    <button class="px-5 py-2.5 text-white bg-primary-brown hover:bg-opacity-90 rounded-xl transition duration-300 shadow-md" onclick="openModal('loginModal')">
+                        Iniciar sesión
+                    </button>
+                    <button class="px-5 py-2.5 text-text-brown bg-light-brown hover:bg-opacity-80 rounded-xl transition duration-300 shadow-md" onclick="openModal('registerModal')">
+                        Regístrate
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button - SIEMPRE VISIBLE EN MÓVIL -->
+                <button class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1" id="mobileMenuButton">
+                    <span class="block w-6 h-0.5 bg-primary-brown transition-transform"></span>
+                    <span class="block w-6 h-0.5 bg-primary-brown transition-opacity"></span>
+                    <span class="block w-6 h-0.5 bg-primary-brown transition-transform"></span>
                 </button>
-                <button class="px-5 py-2.5 text-text-brown bg-light-brown hover:bg-opacity-80 rounded-xl transition duration-300 shadow-md">
-                    Regístrate
-                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden fixed inset-0 bg-white z-50 p-6 transform transition-transform duration-300 -translate-x-full" id="mobileMenu">
+            <div class="flex justify-between items-center mb-8">
+                <a href="index.html" class="flex flex-col items-start leading-none -space-y-2">
+                    <svg width="100" height="20" viewBox="0 0 100 20" fill="none" class="text-primary-brown">
+                        <polyline points="0,18 50,2 100,18" fill="none" stroke="currentColor" stroke-width="5"/>
+                    </svg>
+                    <div class="text-2xl font-bold tracking-tight text-primary-brown pt-1">WOTOCH</div>
+                </a>
+                <button class="text-3xl text-primary-brown" id="closeMobileMenu">&times;</button>
+            </div>
+            
+            <nav class="flex flex-col space-y-6">
+                <a href="index.html" class="text-xl font-semibold text-gray-700 hover:text-primary-brown py-2 border-b border-gray-200">Inicio</a>
+                <a href="como-funciona.html" class="text-xl font-semibold text-gray-700 hover:text-primary-brown py-2 border-b border-gray-200">¿Cómo funciona?</a>
+                <a href="quienes-somos.html" class="text-xl font-semibold text-primary-brown py-2 border-b border-gray-200">¿Quiénes somos?</a>
+                
+                <!-- Botones de acción SOLO EN EL MENÚ MÓVIL -->
+                <div class="pt-4 space-y-4">
+                    <button class="w-full py-3 text-white bg-primary-brown hover:bg-opacity-90 rounded-xl transition duration-300" onclick="openModal('loginModal')">
+                        Iniciar sesión
+                    </button>
+                    <button class="w-full py-3 text-text-brown bg-light-brown hover:bg-opacity-80 rounded-xl transition duration-300" onclick="openModal('registerModal')">
+                        Regístrate
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -197,5 +235,6 @@
             }, 300); // Coincide con la duración de la transición
         }
     </script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -85,10 +85,10 @@
     <!-- Contenedor principal del perfil -->
     <div class="flex-1 flex flex-col bg-white">
       <!-- Encabezado del perfil -->
-      <div class="border-b border-gray-200 px-12 pt-16 pb-8">
-        <div class="flex items-start justify-between">
+      <div class="border-b border-gray-200 px-4 sm:px-8 md:px-12 pt-8 sm:pt-12 md:pt-16 pb-4 sm:pb-6 md:pb-8">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6">
           <!-- Info del usuario -->
-          <div class="flex items-start gap-8">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 md:gap-8">
             <!-- Foto de perfil -->
             <div class="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 border-4 border-primary-brown">
               <img src="imagenes/perfil-gaby.jpg" alt="Foto de perfil" class="w-full h-full object-cover">
@@ -96,46 +96,46 @@
 
             <!-- Información del usuario -->
             <div class="flex flex-col justify-center flex-1">
-              <h1 class="text-5xl font-bold text-hero-tittle-color mb-1">Gaby Mandujano</h1>
-              <p class="text-xl text-gray-600 mb-6">@GabStar</p>
+              <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold text-hero-tittle-color mb-1">Gaby Mandujano</h1>
+              <p class="text-sm sm:text-base md:text-xl text-gray-600 mb-4 sm:mb-6">@GabStar</p>
               
               <!-- Stats -->
-              <div class="flex gap-12 mb-6">
+              <div class="flex gap-4 sm:gap-6 md:gap-12 mb-4 sm:mb-6">
                 <div>
-                  <p class="text-2xl font-bold text-gray-900">2</p>
-                  <p class="text-gray-600">publicaciones</p>
+                  <p class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">2</p>
+                  <p class="text-xs sm:text-sm text-gray-600">publicaciones</p>
                 </div>
                 <div>
-                  <p class="text-2xl font-bold text-gray-900">200</p>
-                  <p class="text-gray-600">seguidores</p>
+                  <p class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">200</p>
+                  <p class="text-xs sm:text-sm text-gray-600">seguidores</p>
                 </div>
                 <div>
-                  <p class="text-2xl font-bold text-gray-900">20</p>
-                  <p class="text-gray-600">seguidos</p>
+                  <p class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">20</p>
+                  <p class="text-xs sm:text-sm text-gray-600">seguidos</p>
                 </div>
               </div>
 
               <!-- Biografía -->
-              <p class="text-gray-700 text-base max-w-xl">
+              <p class="text-gray-700 text-xs sm:text-sm md:text-base max-w-xl">
                 El deber del don es compartir. Mi corazón se mantiene atendiendo en las memorias de otros.
               </p>
             </div>
           </div>
 
           <!-- Botón de acción -->
-          <a href="editar-perfil.html" class="px-6 py-2 bg-light-brown text-gray-800 rounded-full font-semibold hover:bg-opacity-80 transition border border-gray-300 inline-block">
+          <a href="editar-perfil.html" class="edit-profile-btn">
             Editar perfil
           </a>
         </div>
       </div>
 
       <!-- Sección de publicaciones -->
-      <div class="flex-1 px-12 py-8 flex flex-col">
+      <div class="flex-1 px-4 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 flex flex-col">
         <!-- Botones sin fondo con línea inferior activa -->
-        <div class="w-full flex justify-start gap-96 mb-8 border-b border-gray-200 pl-56">
+        <div class="w-full flex justify-start gap-4 sm:gap-12 md:gap-96 mb-6 sm:mb-8 border-b border-gray-200 pl-0 sm:pl-20 md:pl-56 overflow-x-auto">
           <!-- Botón Publicaciones (4 cuadrados) -->
-          <button id="pubBtn" class="flex flex-col items-center gap-3 p-4 pb-4 border-b-4 border-primary-brown text-black transition">
-            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="pubBtn" class="flex flex-col items-center gap-2 sm:gap-3 p-2 sm:p-4 pb-2 sm:pb-4 border-b-4 border-primary-brown text-black transition">
+            <svg class="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/>
               <rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/>
               <rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/>
@@ -144,8 +144,8 @@
           </button>
 
           <!-- Botón Insignias -->
-          <button id="insBtn" class="flex flex-col items-center gap-3 p-4 pb-4 border-b-4 border-transparent text-gray-500 hover:border-gray-300 transition">
-            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="insBtn" class="flex flex-col items-center gap-2 sm:gap-3 p-2 sm:p-4 pb-2 sm:pb-4 border-b-4 border-transparent text-gray-500 hover:border-gray-300 transition">
+            <svg class="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="8" r="6" stroke-width="2"/>
               <path d="M8.5 13L7 22l5-3 5 3-1.5-9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -153,7 +153,7 @@
         </div>
 
         <!-- Grid de publicaciones -->
-        <div id="publicacionesGrid" class="grid grid-cols-3 gap-6">
+        <div id="publicacionesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <!-- Publicación 1 -->
           <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition bg-white relative group">
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Zapatos Miu Miu" class="w-full h-80 object-cover">
@@ -219,7 +219,7 @@
         </div>
 
         <!-- Grid de insignias (oculto inicialmente) -->
-        <div id="insigniasGrid" class="hidden grid grid-cols-3 gap-6">
+        <div id="insigniasGrid" class="hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white p-8 flex flex-col items-center justify-center">
             <div class="w-24 h-24 bg-yellow-200 rounded-full flex items-center justify-center mb-4">
               <span class="text-4xl">⭐</span>
