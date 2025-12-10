@@ -709,24 +709,16 @@
 /* El botón hamburguesa se queda quieto */
 #mobileMenuButton {
   z-index: 50; /* por debajo del botón de cierre */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1f93719 (hacer_publicacion)
-=======
->>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79
 }
 
 /* Estilos personalizados para el área de imagen */
     .image-section {
-      background-color: #f9fafb;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      border-right: 1px solid #e5e7eb;
       min-height: 100vh;
       position: relative;
     }
@@ -848,13 +840,12 @@
 
     /* Estilos personalizados para el área de imagen */
     .image-section {
-      background-color: #f9fafb;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      border-right: 1px solid #e5e7eb;
       min-height: 100vh;
       position: relative;
     }
@@ -998,15 +989,14 @@
             object-fit: cover;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-=======
 }
->>>>>>> c9cc9de (Menu Arreglado)
-=======
+
+/* Estilos para botones de categoría (deseas_donar.html) */
+.category-btn {
+    transition: all 0.3s ease;
 }
->>>>>>> a4fa879 (Se agrega la carpeta del front-end)
-=======
-    }
->>>>>>> 1f93719 (hacer_publicacion)
-=======
-    }
->>>>>>> 9a5c9982902f25855d75689f3cbd703744ab7b79
+
+.category-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(162, 93, 83, 0.3);
+}
