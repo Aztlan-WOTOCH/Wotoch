@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wotoch - Perfil del Usuario</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'hero-tittle-color': '#D67840',
+            'primary-brown': '#A25D53',
+            'light-brown': '#E8DDC8',
+            'text-brown': '#000000',
+            'teal-brand': '#0D9488',
+            'sdg-12': '#C99933',
+            'sdg-11': '#E66A27',
+            'sdg-13': '#408246',
+          },
+          fontFamily: {
+            sans: ['Lexend'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-50 font-sans">
+  <!-- Contenido principal -->
+  <main class="flex min-h-screen">
+    <!-- Menú lateral izquierdo -->
+    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space-y-6 border-r border-gray-300">
+      <!-- Logo como botón para ir al feed -->
+      <a href="feed.html" class="hover:scale-110 transition mb-4">
+        <img src="/imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18">
+      </a>
+      
+      <!-- Icono 1 - Crear publicación -->
+      <a href="hacer_publicacion.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="2.8" y="2.8" width="18" height="18" rx="4" stroke-width="1"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 2 - Corazón -->
+      <a href="deseas_donar.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Círculo exterior -->
+          <circle cx="12" cy="12" r="10" stroke-width="1"/>
+          <!-- Corazón centrado y reducido -->
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1" 
+            d="M12 9c-0.5-1-1.5-1.7-2.7-1.7-1.5 0-2.8 1.2-2.8 2.7 0 4.2 5.5 7 5.5 7s5.5-2.8 5.5-7c0-1.5-1.3-2.7-2.8-2.7-1.2 0-2.2 0.7-2.7 1.7Z" 
+          />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 3 - Campana -->
+      <a href="notificaciones.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+    </aside>
+
+    <!-- Contenedor principal del perfil -->
+    <div class="flex-1 flex flex-col bg-white">
+      <!-- Encabezado del perfil -->
+      <div class="border-b border-gray-200 px-12 pt-16 pb-8">
+        <div class="flex items-start justify-between">
+          <!-- Info del usuario -->
+          <div class="flex items-start gap-8">
+            <!-- Foto de perfil -->
+            <div class="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 border-4 border-primary-brown">
+              <img src="imagenes/perfil-gaby.jpg" alt="Foto de perfil" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Información del usuario -->
+            <div class="flex flex-col justify-center flex-1">
+              <h1 class="text-5xl font-bold text-hero-tittle-color mb-1">Gaby Mandujano</h1>
+              <p class="text-xl text-gray-600 mb-6">@GabStar</p>
+              
+              <!-- Stats -->
+              <div class="flex gap-12 mb-6">
+                <div>
+                  <p class="text-2xl font-bold text-gray-900">2</p>
+                  <p class="text-gray-600">publicaciones</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-gray-900">200</p>
+                  <p class="text-gray-600">seguidores</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-gray-900">20</p>
+                  <p class="text-gray-600">seguidos</p>
+                </div>
+              </div>
+
+              <!-- Biografía -->
+              <p class="text-gray-700 text-base max-w-xl">
+                El deber del don es compartir. Mi corazón se mantiene atendiendo en las memorias de otros.
+              </p>
+            </div>
+          </div>
+
+          <!-- Botón de acción -->
+          <button class="px-6 py-2 bg-light-brown text-gray-800 rounded-full font-semibold hover:bg-opacity-80 transition border border-gray-300">
+            Editar perfil
+          </button>
+        </div>
+      </div>
+
+      <!-- Sección de publicaciones -->
+      <div class="flex-1 px-12 py-8 flex flex-col">
+        <!-- Botones sin fondo con línea inferior activa -->
+        <div class="w-full flex justify-start gap-96 mb-8 border-b border-gray-200 pl-56">
+          <!-- Botón Publicaciones (4 cuadrados) -->
+          <button id="pubBtn" class="flex flex-col items-center gap-3 p-4 pb-4 border-b-4 border-primary-brown text-black transition">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/>
+              <rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/>
+              <rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/>
+              <rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2"/>
+            </svg>
+          </button>
+
+          <!-- Botón Insignias -->
+          <button id="insBtn" class="flex flex-col items-center gap-3 p-4 pb-4 border-b-4 border-transparent text-gray-500 hover:border-gray-300 transition">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="6" stroke-width="2"/>
+              <path d="M8.5 13L7 22l5-3 5 3-1.5-9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Grid de publicaciones -->
+        <div id="publicacionesGrid" class="grid grid-cols-3 gap-6">
+          <!-- Publicación 1 -->
+          <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Zapatos Miu Miu" class="w-full h-80 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-900">Zapatos Miu Miu</h3>
+            </div>
+          </div>
+
+          <!-- Publicación 2 -->
+          <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Ropa colorida" class="w-full h-80 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-900">Ropa y accesorios</h3>
+            </div>
+          </div>
+
+          <!-- Publicación 3 -->
+          <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white">
+            <img src="https://images.unsplash.com/photo-1565958011504-98d6a9ec367f?w=400&q=80" alt="Pizza" class="w-full h-80 object-cover">
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-900">Pizza casera</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid de insignias (oculto inicialmente) -->
+        <div id="insigniasGrid" class="hidden grid grid-cols-3 gap-6">
+          <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white p-8 flex flex-col items-center justify-center">
+            <div class="w-24 h-24 bg-yellow-200 rounded-full flex items-center justify-center mb-4">
+              <span class="text-4xl">⭐</span>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-center">Donante Estrella</h3>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white p-8 flex flex-col items-center justify-center">
+            <div class="w-24 h-24 bg-red-200 rounded-full flex items-center justify-center mb-4">
+              <span class="text-4xl">❤️</span>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-center">Corazón Generoso</h3>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer bg-white p-8 flex flex-col items-center justify-center">
+            <div class="w-24 h-24 bg-purple-200 rounded-full flex items-center justify-center mb-4">
+              <span class="text-4xl">🎖️</span>
+            </div>
+            <h3 class="font-semibold text-gray-900 text-center">Medallero</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script>
+    // Manejo de botones de tabs
+    const pubBtn = document.getElementById('pubBtn');
+    const insBtn = document.getElementById('insBtn');
+    const publicacionesGrid = document.getElementById('publicacionesGrid');
+    const insigniasGrid = document.getElementById('insigniasGrid');
+
+    pubBtn.addEventListener('click', function() {
+      publicacionesGrid.classList.remove('hidden');
+      insigniasGrid.classList.add('hidden');
+      pubBtn.classList.remove('border-transparent');
+      pubBtn.classList.add('border-primary-brown');
+      pubBtn.classList.remove('text-gray-500');
+      pubBtn.classList.add('text-black');
+      insBtn.classList.remove('border-primary-brown');
+      insBtn.classList.add('border-transparent');
+      insBtn.classList.remove('text-black');
+      insBtn.classList.add('text-gray-500');
+    });
+
+    insBtn.addEventListener('click', function() {
+      insigniasGrid.classList.remove('hidden');
+      publicacionesGrid.classList.add('hidden');
+      insBtn.classList.remove('border-transparent');
+      insBtn.classList.add('border-primary-brown');
+      insBtn.classList.remove('text-gray-500');
+      insBtn.classList.add('text-black');
+      pubBtn.classList.remove('border-primary-brown');
+      pubBtn.classList.add('border-transparent');
+      pubBtn.classList.remove('text-black');
+      pubBtn.classList.add('text-gray-500');
+    });
+  </script>
+</body>
+</html>

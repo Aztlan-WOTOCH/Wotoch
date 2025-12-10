@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wotoch - Feed</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'hero-tittle-color': '#D67840',
+            'primary-brown': '#A25D53',
+            'light-brown': '#E8DDC8',
+            'text-brown': '#000000',
+            'teal-brand': '#0D9488',
+          },
+          fontFamily: {
+            sans: ['Lexend'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="bg-white font-sans">
+  <!-- Contenido principal -->
+  <main class="flex min-h-screen">
+    <!-- Menú lateral izquierdo (fijo) -->
+    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space-y-6 border-r border-gray-300 fixed left-0 top-0 h-screen bg-white z-40">
+      <!-- Logo como botón para ir al feed -->
+      <a href="feed.html" class="hover:scale-110 transition mb-4">
+        <img src="/imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18">
+      </a>
+      
+      <!-- Icono 1 - Crear publicación -->
+      <a href="hacer_publicacion.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="2.8" y="2.8" width="18" height="18" rx="4" stroke-width="1"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 2 - Corazón -->
+      <a href="deseas_donar.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Círculo exterior -->
+          <circle cx="12" cy="12" r="10" stroke-width="1"/>
+          <!-- Corazón centrado y reducido -->
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1" 
+            d="M12 9c-0.5-1-1.5-1.7-2.7-1.7-1.5 0-2.8 1.2-2.8 2.7 0 4.2 5.5 7 5.5 7s5.5-2.8 5.5-7c0-1.5-1.3-2.7-2.8-2.7-1.2 0-2.2 0.7-2.7 1.7Z" 
+          />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+
+      <!-- Icono 3 - Campana -->
+      <a href="notificaciones.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
+    </aside>
+
+    <!-- Contenedor principal del feed -->
+    <div class="flex-1 flex ml-20 sm:ml-24">
+      <!-- Área central del feed -->
+      <div class="flex-1 flex flex-col items-center py-8 px-4 overflow-y-auto mr-64">
+        <!-- Publicación -->
+        <article class="w-full max-w-lg bg-white rounded-3xl border border-gray-200 mb-8 overflow-hidden">
+          <!-- Header de la publicación -->
+          <div class="flex items-center justify-between px-4 py-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-brown">
+                <img src="imagenes/perfil-gaby.jpg" alt="kArYme" class="w-full h-full object-cover">
+              </div>
+              <span class="font-semibold text-gray-900">kArYme</span>
+            </div>
+            <button class="text-blue-500 font-normal hover:text-blue-600 transition">Seguir</button>
+          </div>
+
+          <!-- Imagen de la publicación -->
+          <div class="px-4 pb-2">
+            <div class="w-full aspect-square bg-gray-100 rounded-2xl overflow-hidden">
+              <img src="https://i.pinimg.com/736x/29/1b/72/291b727a1607887f8fca6ec8b0ee32fc.jpg" alt="Donación de laptop" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Acciones -->
+          <div class="px-4 py-3">
+            <div class="flex items-center gap-4 mb-2">
+              <!-- Corazón -->
+              <button class="hover:scale-110 transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </button>
+              <!-- Comentario -->
+              <button class="hover:scale-110 transition open-modal-btn">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                </svg>
+              </button>
+              <!-- Compartir -->
+              <button class="hover:scale-110 transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Me gustas -->
+            <p class="font-semibold text-gray-900 mb-1">20 Me gustas</p>
+
+            <!-- Descripción -->
+            <p class="text-gray-900">
+              <span class="font-semibold">kArYme</span> El día de hoy doné una computadora que ya no usaba a la escuela Hermanos Serdán. Fue una experiencia... 
+              <button class="text-gray-500 hover:text-gray-700 open-modal-btn">más</button>
+            </p>
+
+            <!-- Ver comentarios -->
+            <button class="text-gray-500 text-sm mt-2 hover:text-gray-700 open-modal-btn">Todos los comentarios</button>
+          </div>
+        </article>
+
+        <!-- Más publicaciones pueden ir aquí -->
+      </div>
+
+      <!-- Panel lateral derecho (fijo) -->
+      <aside class="w-64 flex flex-col items-center py-8 px-4 fixed right-0 top-0 h-screen bg-white z-40">
+        <!-- Foto de perfil del usuario actual -->
+        <div id="profileBtn" class="user-profile cursor-pointer hover:scale-110 transition mb-8">
+          <img id="profileImg" src="imagenes/perfil-gaby.jpg" alt="Foto de perfil">
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="flex flex-col gap-4 w-full">
+          <a href="acciones-del-mes.html" class="w-full py-3 px-6 bg-primary-brown text-white font-semibold rounded-full hover:bg-opacity-90 transition text-center">
+            Acción del mes
+          </a>
+          <a href="todas-las-acciones.html" class="w-full py-3 px-6 bg-light-brown text-gray-800 font-semibold rounded-full hover:bg-opacity-90 transition border border-gray-300 text-center">
+            Todas las acciones
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Modal de publicación -->
+  <div id="postModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-3xl overflow-hidden max-w-5xl w-full mx-4 max-h-[90vh] flex">
+      <!-- Lado izquierdo - Imagen -->
+      <div class="w-1/2 bg-white flex items-center justify-center p-4">
+        <div class="w-full h-full rounded-2xl overflow-hidden">
+          <img src="https://i.pinimg.com/736x/29/1b/72/291b727a1607887f8fca6ec8b0ee32fc.jpg" alt="Publicación" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Lado derecho - Contenido -->
+      <div class="w-1/2 flex flex-col">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-6 py-5">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-full overflow-hidden">
+              <img src="imagenes/perfil-gaby.jpg" alt="kArYme" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <span class="font-semibold text-gray-900 block text-lg">kArYme</span>
+              <span class="text-primary-brown text-sm font-semibold">iPad <= dibujito</span>
+            </div>
+          </div>
+          <button class="text-blue-500 font-normal hover:text-blue-600 transition">Seguir</button>
+        </div>
+
+        <!-- Descripción y comentarios -->
+        <div class="flex-1 overflow-y-auto px-6 py-4">
+          <!-- Descripción original -->
+          <div class="mb-6">
+            <p class="text-gray-900 text-sm leading-relaxed">
+              El día de hoy doné una iPad que ya no usaba a la escuela Hermanos Serdán. Fue una experiencia increíble ver la emoción de la pequeñita que lo recibió. Ojalá le sirva un montón, hasta me regaló un dibujito:((
+            </p>
+          </div>
+
+          <!-- Comentarios -->
+          <div class="space-y-4">
+            <!-- Comentario 1 -->
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                <img src="imagenes/perfil-gaby.jpg" alt="lalo.31764" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="text-sm">
+                  <span class="font-semibold">lalo.31764</span>
+                  <span class="text-gray-900"> Esa iPad es de las goats</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Comentario 2 -->
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                <img src="imagenes/perfil-gaby.jpg" alt="samuelesgo" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="text-sm">
+                  <span class="font-semibold">samuelesgo</span>
+                  <span class="text-gray-900"> Ey, qué buena idea. Luego voy a llevarles una Lenovo que tampoco uso</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Comentario 3 -->
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                <img src="imagenes/perfil-gaby.jpg" alt="bloodygaby" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="text-sm">
+                  <span class="font-semibold">bloodygaby</span>
+                  <span class="text-gray-900"> Owww q bonitaa</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer con acciones -->
+        <div class="px-6 py-4">
+          <!-- Acciones -->
+          <div class="flex items-center gap-4 mb-3">
+            <button class="hover:scale-110 transition">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
+            </button>
+            <button class="hover:scale-110 transition">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+              </svg>
+            </button>
+            <button class="hover:scale-110 transition">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Me gustas y fecha -->
+          <p class="font-semibold text-gray-900">20 Me gustas</p>
+          <p class="text-gray-400 text-xs mt-1">15 de noviembre</p>
+
+          <!-- Input de comentario -->
+          <div class="mt-4">
+            <input type="text" placeholder="Comentar" class="w-full text-sm text-gray-500 outline-none" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón cerrar -->
+      <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-gray-300 transition">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Script de animación de perfil -->
+  <script>
+    // Modal functionality
+    const postModal = document.getElementById('postModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+    openModalBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        postModal.classList.remove('hidden');
+        postModal.classList.add('flex');
+      });
+    });
+
+    closeModalBtn.addEventListener('click', function() {
+      postModal.classList.add('hidden');
+      postModal.classList.remove('flex');
+    });
+
+    // Cerrar modal al hacer click fuera
+    postModal.addEventListener('click', function(e) {
+      if (e.target === postModal) {
+        postModal.classList.add('hidden');
+        postModal.classList.remove('flex');
+      }
+    });
+
+    // Profile animation
+    document.getElementById('profileBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const profileBtn = this;
+      const profileImg = document.getElementById('profileImg');
+      const rect = profileBtn.getBoundingClientRect();
+      
+      // Crear clon animado
+      const clone = profileImg.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = rect.left + 'px';
+      clone.style.top = rect.top + 'px';
+      clone.style.width = rect.width + 'px';
+      clone.style.height = rect.height + 'px';
+      clone.style.borderRadius = '50%';
+      clone.style.zIndex = '9999';
+      clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
+      clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+      clone.style.border = '4px solid #A25D53';
+      clone.style.opacity = '1';
+      document.body.appendChild(clone);
+      
+      // Forzar reflow
+      clone.offsetHeight;
+      
+      // Posición final: exactamente donde está la foto en profile.html
+      // sidebar = 96px (w-24), padding = 48px (px-12)
+      const sidebarWidth = 96;
+      const paddingLeft = 48;
+      const finalSize = 192; // w-48 = 192px
+      const finalLeft = sidebarWidth + paddingLeft;
+      const finalTop = 64; // pt-16 = 64px
+      
+      clone.style.left = finalLeft + 'px';
+      clone.style.top = finalTop + 'px';
+      clone.style.width = finalSize + 'px';
+      clone.style.height = finalSize + 'px';
+      clone.style.opacity = '0.3';
+      
+      // Navegar después de la animación
+      setTimeout(function() {
+        window.location.href = 'profile.html';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

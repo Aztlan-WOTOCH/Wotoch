@@ -33,6 +33,8 @@
     }
   </script>
   
+  <link rel="stylesheet" href="styles.css">
+
   <style>
       /* Efecto hover suave para los botones de categoría */
       .category-btn {
@@ -49,47 +51,57 @@
 <body class="bg-white font-sans">
   <!-- Contenido principal -->
   <main class="flex min-h-screen">
-    <!-- Menú laterlal izquierdo -->
-    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space border-r border-gray-300">
-      <!-- Logo Wotoch -->
-      <img src="imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18 mb-4">
-
-      <!-- Icono 1 / House-->
-      <button class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
-        <svg class="w-18 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-        </svg>
-        <span class="text-xs hidden sm:block"></span>
-      </button>
-          
-      <!-- Icono 2 / Mapa -->
-      <button class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+    <!-- Menú lateral izquierdo -->
+    <aside class="w-20 sm:w-24 flex flex-col items-center py-8 space-y-6 border-r border-gray-300">
+      <!-- Logo como botón para ir al feed -->
+      <a href="feed.html" class="hover:scale-110 transition mb-4">
+        <img src="/imagenes/logo2.png" alt="Logo Wotoch" class="w-20 h-18">
+      </a>
+      
+      <!-- Icono 1 - Crear publicación -->
+      <a href="hacer_publicacion.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
         <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <rect x="2.8" y="2.8" width="18" height="18" rx="4" stroke-width="1"/>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
         </svg>
         <span class="text-xs hidden sm:block"></span>
-      </button>
+      </a>
 
-      <!-- Icono 3 -->
-      <button class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+      <!-- Icono 2 - Corazón -->
+      <a href="deseas_donar.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
         <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          <!-- Círculo exterior -->
+          <circle cx="12" cy="12" r="10" stroke-width="1"/>
+          <!-- Corazón centrado y reducido -->
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1" 
+            d="M12 9c-0.5-1-1.5-1.7-2.7-1.7-1.5 0-2.8 1.2-2.8 2.7 0 4.2 5.5 7 5.5 7s5.5-2.8 5.5-7c0-1.5-1.3-2.7-2.8-2.7-1.2 0-2.2 0.7-2.7 1.7Z" 
+          />
         </svg>
         <span class="text-xs hidden sm:block"></span>
-      </button>
+      </a>
+
+      <!-- Icono 3 - Campana -->
+      <a href="notificaciones.html" class="group flex flex-col items-center space-y-1 text-black hover:scale-110 transition">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+        </svg>
+        <span class="text-xs hidden sm:block"></span>
+      </a>
     </aside>
 
-            
-    <!-- Header (Avatar Usuario) -->
-    <div class="absolute top-8 right-8 z-10">
-        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-brown cursor-pointer hover:opacity-80 transition">
-            <img src="imagenes/perfil-gaby.jpg" alt="Perfil" class="w-full h-full object-cover">
-        </div>
-    </div>
-
+      
     <!-- Contenedor Central -->
-    <div class="flex-1 flex flex-col items-center justify-center p-4">
+    <div class="flex-1 flex flex-col items-center justify-center p-4 relative">
+        
+        <!-- Foto de Perfil del Usuario -->
+        <div class="absolute top-8 right-8">
+            <div id="profileBtn" class="user-profile cursor-pointer hover:scale-110 transition">
+                <img id="profileImg" src="imagenes/perfil-gaby.jpg" alt="Foto de perfil">
+            </div>
+        </div>
         
         <!-- Título -->
         <h1 class="text-4xl md:text-5xl font-bold text-hero-tittle-color mb-16 text-center">
@@ -192,6 +204,54 @@
             // Ejemplo de redirección a un formulario específico si lo tuvieras:
             // window.location.href = 'formulario_donacion.html?cat=' + categoryName;
         }
+    </script>
+
+    <!-- Script de animación de perfil -->
+    <script>
+      document.getElementById('profileBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const profileBtn = this;
+        const profileImg = document.getElementById('profileImg');
+        const rect = profileBtn.getBoundingClientRect();
+        
+        // Crear clon animado
+        const clone = profileImg.cloneNode(true);
+        clone.style.position = 'fixed';
+        clone.style.left = rect.left + 'px';
+        clone.style.top = rect.top + 'px';
+        clone.style.width = rect.width + 'px';
+        clone.style.height = rect.height + 'px';
+        clone.style.borderRadius = '50%';
+        clone.style.zIndex = '9999';
+        clone.style.transition = 'all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.2s ease-in-out';
+        clone.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+        clone.style.border = '4px solid #A25D53';
+        clone.style.opacity = '1';
+        document.body.appendChild(clone);
+        
+        // Forzar reflow
+        clone.offsetHeight;
+        
+        // Posición final: exactamente donde está la foto en profile.html
+        // sidebar = 96px (w-24), padding = 48px (px-12)
+        const sidebarWidth = 96;
+        const paddingLeft = 48;
+        const finalSize = 192; // w-48 = 192px
+        const finalLeft = sidebarWidth + paddingLeft;
+        const finalTop = 64; // pt-16 = 64px
+        
+        clone.style.left = finalLeft + 'px';
+        clone.style.top = finalTop + 'px';
+        clone.style.width = finalSize + 'px';
+        clone.style.height = finalSize + 'px';
+        clone.style.opacity = '0.3';
+        
+        // Navegar después de la animación
+        setTimeout(function() {
+          window.location.href = 'profile.html';
+        }, 1200);
+      });
     </script>
 </body>
 </html>
