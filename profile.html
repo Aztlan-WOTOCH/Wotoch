@@ -404,8 +404,11 @@
       console.log('Eliminando publicación:', publicacionActual);
 
       // Remover la publicación del DOM
-      const publicacion = document.querySelector(`[data-id="${publicacionActual}"]`).closest('.rounded-2xl');
-      publicacion.remove();
+      const botonEliminar = document.querySelector(`button.btnEliminar[data-id="${publicacionActual}"]`);
+      if (botonEliminar) {
+        const publicacion = botonEliminar.closest('.rounded-2xl');
+        publicacion.remove();
+      }
 
       // Actualizar contador de publicaciones
       const contador = document.querySelector('p:has-text("publicaciones")');
@@ -415,9 +418,14 @@
         numberElement.textContent = count - 1;
       }
 
-      alert('Publicación eliminada exitosamente');
+      // Cerrar el modal
       modalEliminar.classList.add('hidden');
       publicacionActual = null;
+      
+      // Mostrar mensaje de éxito después de cerrar el modal
+      setTimeout(function() {
+        alert('Publicación eliminada exitosamente');
+      }, 100);
     });
 
     // Cerrar modales al hacer clic fuera
