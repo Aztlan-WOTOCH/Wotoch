@@ -60,7 +60,7 @@ Plan de tareas, responsables y fechas (Google Sheets público):
 ## Instalación local
 1. Clona el repo:
    ```bash
-   git clone https://github.com/ErwinRomeo/Wotoch.git
+   https://github.com/Aztlan-WOTOCH/Wotoch.git
    ```
 2. Abre `index.html` en tu navegador o sirve la carpeta con Live Server.  
 3. (Opcional) Si usas XAMPP, coloca la carpeta en `htdocs/wotoch` y visita:
